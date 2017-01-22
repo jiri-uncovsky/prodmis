@@ -7,10 +7,10 @@ entity jpa --class ~.domain.DocumentRevision
 
 focus --class ~.domain.Organization
 field string --fieldName name
-field string --fieldName address_street
-field string --fieldName address_city
-field string --fieldName address_country
-field string --fieldName address_postcode
+field string --fieldName addressStreet
+field string --fieldName addressCity
+field string --fieldName addressCountry
+field string --fieldName addressPostcode
 field string --fieldName description
 field boolean --fieldName active
 field date --fieldName create_time --type java.util.Calendar

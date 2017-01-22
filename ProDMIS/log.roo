@@ -10,17 +10,17 @@ entity jpa --class ~.DocumentRevision
 entity jpa --class ~.domain.DocumentRevision
 // [failed] entity jpa --class ~.domain.User
 entity jpa --class ~.domain.UserProDMIS
-entity jpa --class ~.domain.Organization¨
+entity jpa --class ~.domain.Organizationï¿½
 entity jpa --class ~.domain.Organization
 entity jpa --class ~.domain.Product
 entity jpa --class ~.domain.Document
 entity jpa --class ~.domain.Comment
 focus --class ~.domain.Organization
 field string --fieldName name
-field string --fieldName address_street
-field string --fieldName address_city
-field string --fieldName address_country
-field string --fieldName address_postcode
+field string --fieldName addressStreet
+field string --fieldName addressCity
+field string --fieldName addressCountry
+field string --fieldName addressPostcode
 field string --fieldName description
 field boolean --fieldName active
 field date --fieldName create_time --type java.util.Calendar
@@ -36,3 +36,5 @@ web mvc view setup --type THYMELEAF
 web mvc templates setup --type THYMELEAF
 web mvc controller --all --package osu.kip.prodmis.controler --responseType THYMELEAF
 // Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2017-01-22 15:42:13
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2017-01-22 17:00:38
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2017-01-22 17:02:50

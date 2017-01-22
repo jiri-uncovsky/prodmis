@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import osu.kip.prodmis.domain.Comment;
+import osu.kip.prodmis.domain.Product;
 import osu.kip.prodmis.domain.UserLogin;
 import osu.kip.prodmis.repository.GlobalSearch;
 import osu.kip.prodmis.service.api.CommentService;
@@ -27,8 +28,10 @@ privileged aspect CommentService_Roo_Service {
     public abstract Comment CommentService.findOne(Long id);    
     public abstract long CommentService.count();    
     public abstract Page<Comment> CommentService.findAll(GlobalSearch globalSearch, Pageable pageable);    
-    public abstract Page<Comment> CommentService.findAllByComment(Comment commentField, GlobalSearch globalSearch, Pageable pageable);    
+    public abstract Page<Comment> CommentService.findAllByProduct(Product productField, GlobalSearch globalSearch, Pageable pageable);    
     public abstract Page<Comment> CommentService.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable);    
-    public abstract Long CommentService.countByReplyToId(Long id);    
+    public abstract Page<Comment> CommentService.findAllByComment(Comment commentField, GlobalSearch globalSearch, Pageable pageable);    
+    public abstract Long CommentService.countByProductId(Long id);    
     public abstract Long CommentService.countByUserLoginId(Long id);    
+    public abstract Long CommentService.countByReplyToId(Long id);    
 }

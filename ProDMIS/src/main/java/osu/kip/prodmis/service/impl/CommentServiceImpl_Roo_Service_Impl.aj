@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import osu.kip.prodmis.domain.Comment;
+import osu.kip.prodmis.domain.Product;
 import osu.kip.prodmis.domain.UserLogin;
 import osu.kip.prodmis.repository.CommentRepository;
 import osu.kip.prodmis.repository.GlobalSearch;
@@ -72,20 +73,28 @@ privileged aspect CommentServiceImpl_Roo_Service_Impl {
         return commentRepository.findAll(globalSearch, pageable);
     }
     
-    public Long CommentServiceImpl.countByReplyToId(Long id) {
-        return commentRepository.countByReplyToId(id);
+    public Long CommentServiceImpl.countByProductId(Long id) {
+        return commentRepository.countByProductId(id);
     }
     
     public Long CommentServiceImpl.countByUserLoginId(Long id) {
         return commentRepository.countByUserLoginId(id);
     }
     
-    public Page<Comment> CommentServiceImpl.findAllByComment(Comment commentField, GlobalSearch globalSearch, Pageable pageable) {
-        return commentRepository.findAllByComment(commentField, globalSearch, pageable);
+    public Long CommentServiceImpl.countByReplyToId(Long id) {
+        return commentRepository.countByReplyToId(id);
+    }
+    
+    public Page<Comment> CommentServiceImpl.findAllByProduct(Product productField, GlobalSearch globalSearch, Pageable pageable) {
+        return commentRepository.findAllByProduct(productField, globalSearch, pageable);
     }
     
     public Page<Comment> CommentServiceImpl.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable) {
         return commentRepository.findAllByUserLogin(userLoginField, globalSearch, pageable);
+    }
+    
+    public Page<Comment> CommentServiceImpl.findAllByComment(Comment commentField, GlobalSearch globalSearch, Pageable pageable) {
+        return commentRepository.findAllByComment(commentField, globalSearch, pageable);
     }
     
 }

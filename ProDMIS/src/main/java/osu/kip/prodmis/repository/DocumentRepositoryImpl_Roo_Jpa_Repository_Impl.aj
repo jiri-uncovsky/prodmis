@@ -72,11 +72,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         return new PageImpl<Document>(results, pageable, totalFound);
     }
     
-    public Page<Document> DocumentRepositoryImpl.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable) {
+    public Page<Document> DocumentRepositoryImpl.findAllByProduct(Product productField, GlobalSearch globalSearch, Pageable pageable) {
         NumberPath<Long> idDocument = new NumberPath<Long>(Long.class, "id");
         QDocument document = QDocument.document;
         JPQLQuery query = getQueryFrom(document);
-        BooleanBuilder where = new BooleanBuilder(document.createdBy.eq(userLoginField));
+        BooleanBuilder where = new BooleanBuilder(document.product.eq(productField));
 
         if (globalSearch != null) {
             String txt = globalSearch.getText();
@@ -116,11 +116,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         return new PageImpl<Document>(results, pageable, totalFound);
     }
     
-    public Page<Document> DocumentRepositoryImpl.findAllByProduct(Product productField, GlobalSearch globalSearch, Pageable pageable) {
+    public Page<Document> DocumentRepositoryImpl.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable) {
         NumberPath<Long> idDocument = new NumberPath<Long>(Long.class, "id");
         QDocument document = QDocument.document;
         JPQLQuery query = getQueryFrom(document);
-        BooleanBuilder where = new BooleanBuilder(document.product.eq(productField));
+        BooleanBuilder where = new BooleanBuilder(document.createdBy.eq(userLoginField));
 
         if (globalSearch != null) {
             String txt = globalSearch.getText();

@@ -5,6 +5,7 @@ package osu.kip.prodmis.domain;
 
 import java.util.Calendar;
 import osu.kip.prodmis.domain.Comment;
+import osu.kip.prodmis.domain.Product;
 import osu.kip.prodmis.domain.UserLogin;
 
 privileged aspect Comment_Roo_JavaBean {
@@ -63,6 +64,14 @@ privileged aspect Comment_Roo_JavaBean {
     
     public void Comment.setReplyTo(Comment replyTo) {
         this.replyTo = replyTo;
+    }
+    
+    public Product Comment.getProduct() {
+        return this.product;
+    }
+    
+    public void Comment.setProduct(Product product) {
+        this.product = product;
     }
     
 }

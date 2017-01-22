@@ -59,5 +59,11 @@ public class Comment {
 	@ManyToOne
 	@JoinColumn(name = "reply_to")
 	private Comment replyTo;
+	
+	/**
+	 */
+	@ManyToOne
+	@JoinColumn(name = "product")
+	private Product product;
 
 }
