@@ -1,0 +1,17 @@
+entity jpa --class ~.domain.Organizaion
+entity jpa --class ~.domain.UserProDMIS
+entity jpa --class ~.domain.Product
+entity jpa --class ~.domain.Comment
+entity jpa --class ~.domain.Document
+entity jpa --class ~.domain.DocumentRevision
+
+focus --class ~.domain.Organization
+field string --fieldName name
+field string --fieldName address_street
+field string --fieldName address_city
+field string --fieldName address_country
+field string --fieldName address_postcode
+field string --fieldName description
+field boolean --fieldName active
+field date --fieldName create_time --type java.util.Calendar
+
