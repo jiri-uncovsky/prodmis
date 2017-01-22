@@ -33,14 +33,6 @@ privileged aspect Comment_Roo_JavaBean {
         this.quoted_text = quoted_text;
     }
     
-    public UserLogin Comment.getUser_login() {
-        return this.user_login;
-    }
-    
-    public void Comment.setUser_login(UserLogin user_login) {
-        this.user_login = user_login;
-    }
-    
     public Calendar Comment.getCreated() {
         return this.created;
     }
@@ -55,6 +47,14 @@ privileged aspect Comment_Roo_JavaBean {
     
     public void Comment.setLastUpdate(Calendar lastUpdate) {
         this.lastUpdate = lastUpdate;
+    }
+    
+    public UserLogin Comment.getUser_login() {
+        return this.user_login;
+    }
+    
+    public void Comment.setUser_login(UserLogin user_login) {
+        this.user_login = user_login;
     }
     
     public Comment Comment.getReplyTo() {

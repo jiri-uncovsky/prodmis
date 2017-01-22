@@ -4,7 +4,10 @@
 package osu.kip.prodmis.domain;
 
 import java.util.Calendar;
+import java.util.Set;
 import osu.kip.prodmis.domain.Organization;
+import osu.kip.prodmis.domain.Product;
+import osu.kip.prodmis.domain.UserLogin;
 
 privileged aspect Organization_Roo_JavaBean {
     
@@ -70,6 +73,22 @@ privileged aspect Organization_Roo_JavaBean {
     
     public void Organization.setCreate_time(Calendar create_time) {
         this.create_time = create_time;
+    }
+    
+    public Set<Product> Organization.getProducts() {
+        return this.products;
+    }
+    
+    public void Organization.setProducts(Set<Product> products) {
+        this.products = products;
+    }
+    
+    public Set<UserLogin> Organization.getUserLogins() {
+        return this.userLogins;
+    }
+    
+    public void Organization.setUserLogins(Set<UserLogin> userLogins) {
+        this.userLogins = userLogins;
     }
     
 }

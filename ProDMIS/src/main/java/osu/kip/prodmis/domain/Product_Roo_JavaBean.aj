@@ -3,6 +3,8 @@
 
 package osu.kip.prodmis.domain;
 
+import java.util.Set;
+import osu.kip.prodmis.domain.Document;
 import osu.kip.prodmis.domain.Organization;
 import osu.kip.prodmis.domain.Product;
 import osu.kip.prodmis.domain.UserLogin;
@@ -55,6 +57,14 @@ privileged aspect Product_Roo_JavaBean {
     
     public void Product.setProductManager(UserLogin productManager) {
         this.productManager = productManager;
+    }
+    
+    public Set<Document> Product.getDocuments() {
+        return this.documents;
+    }
+    
+    public void Product.setDocuments(Set<Document> documents) {
+        this.documents = documents;
     }
     
 }

@@ -3,6 +3,7 @@ package osu.kip.prodmis.domain;
 import java.util.Calendar;
 
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -34,12 +35,6 @@ public class Comment {
 
 	/**
 	 */
-	@Column(name = "user_login")
-	@ManyToOne
-	private UserLogin user_login;
-
-	/**
-	 */
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(style = "M-")
 	@Column(name = "created")
@@ -52,10 +47,17 @@ public class Comment {
 	@Column(name = "last_update")
 	private Calendar lastUpdate;
 
+	
 	/**
 	 */
-	@Column(name = "reply_to")
 	@ManyToOne
+	@JoinColumn(name = "user_login")
+	private UserLogin user_login;
+
+	/**
+	 */
+	@ManyToOne
+	@JoinColumn(name = "reply_to")
 	private Comment replyTo;
 
 }

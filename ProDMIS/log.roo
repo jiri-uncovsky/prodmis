@@ -28,3 +28,4 @@ focus --class ~.domain.UserProDMIS
 field string --fieldName password --column password --notNull --sizeMax 32
 // [failed] entity jpa --class ~.domain.Organization --testAutomatically 
 field string --fieldName username --column username
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2017-01-22 13:30:26

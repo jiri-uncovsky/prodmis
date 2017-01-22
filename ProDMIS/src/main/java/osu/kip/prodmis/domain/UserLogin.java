@@ -3,6 +3,7 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -30,7 +31,7 @@ public class UserLogin {
 	
 	/**
 	 */
-	@Column(name ="name")
+	@Column(name ="firstname")
 	private String name;
 	
 	
@@ -57,11 +58,11 @@ public class UserLogin {
     private Calendar create_time;
 	
 	
+	
     /**
 	 */
-    @Column(name ="organization")
-	@ManyToOne
-    private Organization organization;
-    
+    @ManyToOne
+	@JoinColumn(name ="organization")
+	private Organization organization;
 	
 }

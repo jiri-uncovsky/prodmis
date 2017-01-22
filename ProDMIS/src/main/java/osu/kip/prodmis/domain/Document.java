@@ -1,6 +1,12 @@
 package osu.kip.prodmis.domain;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.springframework.roo.addon.javabean.annotations.RooJavaBean;
 import org.springframework.roo.addon.javabean.annotations.RooToString;
@@ -31,16 +37,22 @@ public class Document {
 	
 	/**
      */
-	@Column(name = "product")
 	@ManyToOne	
+	@JoinColumn(name = "product")
     private Product product;
 		
 	
 	/**
      */
-	@Column(name = "created_by")
 	@ManyToOne	
-    private UserLogin createdBy;
+	@JoinColumn(name = "created_by")
+	private UserLogin createdBy;
+	
+	   /**
+     */
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "document")
+    private Set<DocumentRevision> revisions = new HashSet<DocumentRevision>();
+
 	
 	
 }

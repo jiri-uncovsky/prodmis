@@ -1,6 +1,7 @@
 package osu.kip.prodmis.domain;
 
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.springframework.roo.addon.javabean.annotations.RooJavaBean;
@@ -39,14 +40,15 @@ public class DocumentRevision {
 		
 	/**
 	 */
-	@Column(name = "created_by")
+
 	@ManyToOne
+	@JoinColumn(name = "created_by")
 	private UserLogin createdBy;
 
 	/**
 	 */
-	@Column(name = "document")
 	@ManyToOne
+	@JoinColumn(name = "document")
 	private Document document;
 
 }

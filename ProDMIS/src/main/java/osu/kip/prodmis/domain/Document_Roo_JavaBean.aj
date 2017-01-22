@@ -3,7 +3,9 @@
 
 package osu.kip.prodmis.domain;
 
+import java.util.Set;
 import osu.kip.prodmis.domain.Document;
+import osu.kip.prodmis.domain.DocumentRevision;
 import osu.kip.prodmis.domain.Product;
 import osu.kip.prodmis.domain.UserLogin;
 
@@ -47,6 +49,14 @@ privileged aspect Document_Roo_JavaBean {
     
     public void Document.setCreatedBy(UserLogin createdBy) {
         this.createdBy = createdBy;
+    }
+    
+    public Set<DocumentRevision> Document.getRevisions() {
+        return this.revisions;
+    }
+    
+    public void Document.setRevisions(Set<DocumentRevision> revisions) {
+        this.revisions = revisions;
     }
     
 }
