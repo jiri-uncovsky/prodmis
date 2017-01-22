@@ -31,7 +31,7 @@ public class Comment {
 	/**
 	 */
 	@Column(name = "quoted_text")
-	private String quoted_text;
+	private String quotedText;
 
 	/**
 	 */
@@ -52,7 +52,7 @@ public class Comment {
 	 */
 	@ManyToOne
 	@JoinColumn(name = "user_login")
-	private UserLogin user_login;
+	private UserLogin userLogin;
 
 	/**
 	 */

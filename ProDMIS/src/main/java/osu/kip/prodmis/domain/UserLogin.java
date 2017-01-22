@@ -55,10 +55,10 @@ public class UserLogin {
      */
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
-    private Calendar create_time;
+    @Column(name ="create_time")
+    private Calendar createTime;
 	
-	
-	
+		
     /**
 	 */
     @ManyToOne

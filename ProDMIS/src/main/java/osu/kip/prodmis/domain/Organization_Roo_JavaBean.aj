@@ -19,36 +19,36 @@ privileged aspect Organization_Roo_JavaBean {
         this.name = name;
     }
     
-    public String Organization.getAddress_street() {
-        return this.address_street;
+    public String Organization.getAddressStreet() {
+        return this.addressStreet;
     }
     
-    public void Organization.setAddress_street(String address_street) {
-        this.address_street = address_street;
+    public void Organization.setAddressStreet(String addressStreet) {
+        this.addressStreet = addressStreet;
     }
     
-    public String Organization.getAddress_city() {
-        return this.address_city;
+    public String Organization.getAddressCity() {
+        return this.addressCity;
     }
     
-    public void Organization.setAddress_city(String address_city) {
-        this.address_city = address_city;
+    public void Organization.setAddressCity(String addressCity) {
+        this.addressCity = addressCity;
     }
     
-    public String Organization.getAddress_country() {
-        return this.address_country;
+    public String Organization.getAddressCountry() {
+        return this.addressCountry;
     }
     
-    public void Organization.setAddress_country(String address_country) {
-        this.address_country = address_country;
+    public void Organization.setAddressCountry(String addressCountry) {
+        this.addressCountry = addressCountry;
     }
     
-    public String Organization.getAddress_postcode() {
-        return this.address_postcode;
+    public String Organization.getAddressPostcode() {
+        return this.addressPostcode;
     }
     
-    public void Organization.setAddress_postcode(String address_postcode) {
-        this.address_postcode = address_postcode;
+    public void Organization.setAddressPostcode(String addressPostcode) {
+        this.addressPostcode = addressPostcode;
     }
     
     public String Organization.getDescription() {
@@ -67,12 +67,12 @@ privileged aspect Organization_Roo_JavaBean {
         this.active = active;
     }
     
-    public Calendar Organization.getCreate_time() {
-        return this.create_time;
+    public Calendar Organization.getCreateTime() {
+        return this.createTime;
     }
     
-    public void Organization.setCreate_time(Calendar create_time) {
-        this.create_time = create_time;
+    public void Organization.setCreateTime(Calendar createTime) {
+        this.createTime = createTime;
     }
     
     public Set<Product> Organization.getProducts() {

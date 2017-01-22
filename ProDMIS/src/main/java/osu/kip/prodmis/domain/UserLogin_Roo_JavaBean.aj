@@ -57,12 +57,12 @@ privileged aspect UserLogin_Roo_JavaBean {
         this.admin = admin;
     }
     
-    public Calendar UserLogin.getCreate_time() {
-        return this.create_time;
+    public Calendar UserLogin.getCreateTime() {
+        return this.createTime;
     }
     
-    public void UserLogin.setCreate_time(Calendar create_time) {
-        this.create_time = create_time;
+    public void UserLogin.setCreateTime(Calendar createTime) {
+        this.createTime = createTime;
     }
     
     public Organization UserLogin.getOrganization() {

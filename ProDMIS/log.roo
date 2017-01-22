@@ -29,3 +29,10 @@ field string --fieldName password --column password --notNull --sizeMax 32
 // [failed] entity jpa --class ~.domain.Organization --testAutomatically 
 field string --fieldName username --column username
 // Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2017-01-22 13:30:26
+repository jpa --all --package osu.kip.prodmis.repository
+service --all --apiPackage osu.kip.prodmis.service.api --implPackage osu.kip.prodmis.service.impl
+web mvc setup
+web mvc view setup --type THYMELEAF
+web mvc templates setup --type THYMELEAF
+web mvc controller --all --package osu.kip.prodmis.controler --responseType THYMELEAF
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2017-01-22 15:42:13

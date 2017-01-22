@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -19,37 +20,45 @@ public class Organization {
 
     /**
      */
-    private String name;
+	@Column(name = "name")
+	private String name;
 
     /**
      */
-    private String address_street;
+	@Column(name = "address_street")
+    private String addressStreet;
 
     /**
      */
-    private String address_city;
+	@Column(name = "address_city")
+    private String addressCity;
 
     /**
      */
-    private String address_country;
+	@Column(name = "address_country")
+    private String addressCountry;
 
     /**
      */
-    private String address_postcode;
+	@Column(name = "address_postcode")
+    private String addressPostcode;
 
     /**
      */
+	@Column(name = "description")
     private String description;
 
     /**
      */
+	@Column(name = "active")
     private Boolean active;
 
     /**
      */
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
-    private Calendar create_time;
+	@Column(name = "create_time")
+    private Calendar createTime;
     
     
     /**

@@ -25,12 +25,12 @@ privileged aspect Comment_Roo_JavaBean {
         this.text = text;
     }
     
-    public String Comment.getQuoted_text() {
-        return this.quoted_text;
+    public String Comment.getQuotedText() {
+        return this.quotedText;
     }
     
-    public void Comment.setQuoted_text(String quoted_text) {
-        this.quoted_text = quoted_text;
+    public void Comment.setQuotedText(String quotedText) {
+        this.quotedText = quotedText;
     }
     
     public Calendar Comment.getCreated() {
@@ -49,12 +49,12 @@ privileged aspect Comment_Roo_JavaBean {
         this.lastUpdate = lastUpdate;
     }
     
-    public UserLogin Comment.getUser_login() {
-        return this.user_login;
+    public UserLogin Comment.getUserLogin() {
+        return this.userLogin;
     }
     
-    public void Comment.setUser_login(UserLogin user_login) {
-        this.user_login = user_login;
+    public void Comment.setUserLogin(UserLogin userLogin) {
+        this.userLogin = userLogin;
     }
     
     public Comment Comment.getReplyTo() {
