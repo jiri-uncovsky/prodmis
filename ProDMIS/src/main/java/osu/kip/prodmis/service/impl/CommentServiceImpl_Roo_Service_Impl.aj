@@ -73,10 +73,6 @@ privileged aspect CommentServiceImpl_Roo_Service_Impl {
         return commentRepository.findAll(globalSearch, pageable);
     }
     
-    public Long CommentServiceImpl.countByProductId(Long id) {
-        return commentRepository.countByProductId(id);
-    }
-    
     public Long CommentServiceImpl.countByUserLoginId(Long id) {
         return commentRepository.countByUserLoginId(id);
     }
@@ -85,8 +81,8 @@ privileged aspect CommentServiceImpl_Roo_Service_Impl {
         return commentRepository.countByReplyToId(id);
     }
     
-    public Page<Comment> CommentServiceImpl.findAllByProduct(Product productField, GlobalSearch globalSearch, Pageable pageable) {
-        return commentRepository.findAllByProduct(productField, globalSearch, pageable);
+    public Long CommentServiceImpl.countByProductId(Long id) {
+        return commentRepository.countByProductId(id);
     }
     
     public Page<Comment> CommentServiceImpl.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable) {
@@ -95,6 +91,10 @@ privileged aspect CommentServiceImpl_Roo_Service_Impl {
     
     public Page<Comment> CommentServiceImpl.findAllByComment(Comment commentField, GlobalSearch globalSearch, Pageable pageable) {
         return commentRepository.findAllByComment(commentField, globalSearch, pageable);
+    }
+    
+    public Page<Comment> CommentServiceImpl.findAllByProduct(Product productField, GlobalSearch globalSearch, Pageable pageable) {
+        return commentRepository.findAllByProduct(productField, globalSearch, pageable);
     }
     
 }

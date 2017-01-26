@@ -72,50 +72,6 @@ privileged aspect CommentRepositoryImpl_Roo_Jpa_Repository_Impl {
         return new PageImpl<Comment>(results, pageable, totalFound);
     }
     
-    public Page<Comment> CommentRepositoryImpl.findAllByProduct(Product productField, GlobalSearch globalSearch, Pageable pageable) {
-        NumberPath<Long> idComment = new NumberPath<Long>(Long.class, "id");
-        QComment comment = QComment.comment;
-        JPQLQuery query = getQueryFrom(comment);
-        BooleanBuilder where = new BooleanBuilder(comment.product.eq(productField));
-
-        if (globalSearch != null) {
-            String txt = globalSearch.getText();
-            where.and(
-                comment.subject.containsIgnoreCase(txt)
-                .or(comment.text.containsIgnoreCase(txt))
-                .or(comment.quotedText.containsIgnoreCase(txt))
-            );
-
-        }
-        query.where(where);
-
-        long totalFound = query.count();
-        if (pageable != null) {
-            if (pageable.getSort() != null) {
-                for (Sort.Order order : pageable.getSort()) {
-                    Order direction = order.isAscending() ? Order.ASC : Order.DESC;
-
-                    switch(order.getProperty()){
-                        case "subject":
-                           query.orderBy(new OrderSpecifier<String>(direction, comment.subject));
-                           break;
-                        case "text":
-                           query.orderBy(new OrderSpecifier<String>(direction, comment.text));
-                           break;
-                        case "quotedText":
-                           query.orderBy(new OrderSpecifier<String>(direction, comment.quotedText));
-                           break;
-                    }
-                }
-            }
-            query.offset(pageable.getOffset()).limit(pageable.getPageSize());
-        }
-        query.orderBy(idComment.asc());
-        
-        List<Comment> results = query.list(comment);
-        return new PageImpl<Comment>(results, pageable, totalFound);
-    }
-    
     public Page<Comment> CommentRepositoryImpl.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable) {
         NumberPath<Long> idComment = new NumberPath<Long>(Long.class, "id");
         QComment comment = QComment.comment;
@@ -165,6 +121,50 @@ privileged aspect CommentRepositoryImpl_Roo_Jpa_Repository_Impl {
         QComment comment = QComment.comment;
         JPQLQuery query = getQueryFrom(comment);
         BooleanBuilder where = new BooleanBuilder(comment.replyTo.eq(commentField));
+
+        if (globalSearch != null) {
+            String txt = globalSearch.getText();
+            where.and(
+                comment.subject.containsIgnoreCase(txt)
+                .or(comment.text.containsIgnoreCase(txt))
+                .or(comment.quotedText.containsIgnoreCase(txt))
+            );
+
+        }
+        query.where(where);
+
+        long totalFound = query.count();
+        if (pageable != null) {
+            if (pageable.getSort() != null) {
+                for (Sort.Order order : pageable.getSort()) {
+                    Order direction = order.isAscending() ? Order.ASC : Order.DESC;
+
+                    switch(order.getProperty()){
+                        case "subject":
+                           query.orderBy(new OrderSpecifier<String>(direction, comment.subject));
+                           break;
+                        case "text":
+                           query.orderBy(new OrderSpecifier<String>(direction, comment.text));
+                           break;
+                        case "quotedText":
+                           query.orderBy(new OrderSpecifier<String>(direction, comment.quotedText));
+                           break;
+                    }
+                }
+            }
+            query.offset(pageable.getOffset()).limit(pageable.getPageSize());
+        }
+        query.orderBy(idComment.asc());
+        
+        List<Comment> results = query.list(comment);
+        return new PageImpl<Comment>(results, pageable, totalFound);
+    }
+    
+    public Page<Comment> CommentRepositoryImpl.findAllByProduct(Product productField, GlobalSearch globalSearch, Pageable pageable) {
+        NumberPath<Long> idComment = new NumberPath<Long>(Long.class, "id");
+        QComment comment = QComment.comment;
+        JPQLQuery query = getQueryFrom(comment);
+        BooleanBuilder where = new BooleanBuilder(comment.product.eq(productField));
 
         if (globalSearch != null) {
             String txt = globalSearch.getText();

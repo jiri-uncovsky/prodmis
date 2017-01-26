@@ -28,8 +28,8 @@ privileged aspect DocumentService_Roo_Service {
     public abstract Document DocumentService.findOne(Long id);    
     public abstract long DocumentService.count();    
     public abstract Page<Document> DocumentService.findAll(GlobalSearch globalSearch, Pageable pageable);    
-    public abstract Page<Document> DocumentService.findAllByProduct(Product productField, GlobalSearch globalSearch, Pageable pageable);    
     public abstract Page<Document> DocumentService.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable);    
-    public abstract Long DocumentService.countByProductId(Long id);    
+    public abstract Page<Document> DocumentService.findAllByProduct(Product productField, GlobalSearch globalSearch, Pageable pageable);    
     public abstract Long DocumentService.countByCreatedById(Long id);    
+    public abstract Long DocumentService.countByProductId(Long id);    
 }

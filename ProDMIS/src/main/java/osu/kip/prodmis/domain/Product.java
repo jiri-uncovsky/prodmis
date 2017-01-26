@@ -61,5 +61,11 @@ public class Product {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private Set<Document> documents = new HashSet<Document>();
 
-		
+    
+    /**
+     */
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+    private Set<Comment> comments = new HashSet<Comment>();
+    
+    
 }

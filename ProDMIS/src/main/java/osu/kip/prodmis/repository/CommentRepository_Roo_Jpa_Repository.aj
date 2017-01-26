@@ -20,7 +20,7 @@ privileged aspect CommentRepository_Roo_Jpa_Repository {
     
     declare @type: CommentRepository: @Transactional(readOnly = true);
     
-    public abstract Long CommentRepository.countByUserLoginId(Long id);    
     public abstract Long CommentRepository.countByReplyToId(Long id);    
     public abstract Long CommentRepository.countByProductId(Long id);    
+    public abstract Long CommentRepository.countByUserLoginId(Long id);    
 }

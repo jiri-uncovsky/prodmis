@@ -28,10 +28,10 @@ privileged aspect CommentService_Roo_Service {
     public abstract Comment CommentService.findOne(Long id);    
     public abstract long CommentService.count();    
     public abstract Page<Comment> CommentService.findAll(GlobalSearch globalSearch, Pageable pageable);    
-    public abstract Page<Comment> CommentService.findAllByProduct(Product productField, GlobalSearch globalSearch, Pageable pageable);    
     public abstract Page<Comment> CommentService.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable);    
     public abstract Page<Comment> CommentService.findAllByComment(Comment commentField, GlobalSearch globalSearch, Pageable pageable);    
-    public abstract Long CommentService.countByProductId(Long id);    
+    public abstract Page<Comment> CommentService.findAllByProduct(Product productField, GlobalSearch globalSearch, Pageable pageable);    
     public abstract Long CommentService.countByUserLoginId(Long id);    
     public abstract Long CommentService.countByReplyToId(Long id);    
+    public abstract Long CommentService.countByProductId(Long id);    
 }
