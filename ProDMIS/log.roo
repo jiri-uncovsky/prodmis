@@ -1,0 +1,42 @@
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2017-01-22 08:36:59
+project setup --topLevelPackage osu.kip.prodmis --projectName "ProDMIS" --java 8 --packaging JAR
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2017-01-22 08:36:59
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2017-01-22 08:37:02
+jpa setup --provider HIBERNATE --database MYSQL --databaseName prodmis --hostName localhost --userName usr_prodmis_db --password prodmis_pass
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2017-01-22 10:15:55
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2017-01-22 11:05:34
+settings add --name spring.roo.jpa.require.schema-object-name --value false --force
+entity jpa --class ~.DocumentRevision
+entity jpa --class ~.domain.DocumentRevision
+// [failed] entity jpa --class ~.domain.User
+entity jpa --class ~.domain.UserProDMIS
+entity jpa --class ~.domain.Organization�
+entity jpa --class ~.domain.Organization
+entity jpa --class ~.domain.Product
+entity jpa --class ~.domain.Document
+entity jpa --class ~.domain.Comment
+focus --class ~.domain.Organization
+field string --fieldName name
+field string --fieldName addressStreet
+field string --fieldName addressCity
+field string --fieldName addressCountry
+field string --fieldName addressPostcode
+field string --fieldName description
+field boolean --fieldName active
+field date --fieldName create_time --type java.util.Calendar
+focus --class ~.domain.UserProDMIS
+field string --fieldName password --column password --notNull --sizeMax 32
+// [failed] entity jpa --class ~.domain.Organization --testAutomatically 
+field string --fieldName username --column username
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2017-01-22 13:30:26
+repository jpa --all --package osu.kip.prodmis.repository
+service --all --apiPackage osu.kip.prodmis.service.api --implPackage osu.kip.prodmis.service.impl
+web mvc setup
+web mvc view setup --type THYMELEAF
+web mvc templates setup --type THYMELEAF
+web mvc controller --all --package osu.kip.prodmis.controler --responseType THYMELEAF
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2017-01-22 15:42:13
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2017-01-22 17:00:38
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2017-01-22 17:02:50
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2017-01-26 17:29:27
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2017-01-26 18:43:33
