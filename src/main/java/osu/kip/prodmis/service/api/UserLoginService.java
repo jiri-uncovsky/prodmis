@@ -4,4 +4,5 @@ import osu.kip.prodmis.domain.UserLogin;
 
 @RooService(entity = UserLogin.class)
 public interface UserLoginService {
+  public UserLogin findOne(String userName);
 }

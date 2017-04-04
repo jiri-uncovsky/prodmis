@@ -9,7 +9,8 @@ public class MainController {
     public String root(Locale locale) {
         return "redirect:/index.html";
     }
-      @RequestMapping("/index.html")
+    
+    @RequestMapping("/index.html")
     public String index() {
         return "index";
     }
