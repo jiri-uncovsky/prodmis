@@ -105,13 +105,13 @@
       <dt data-th-text="#{label_product_organization}">
        organization
       </dt> 
-      <dd data-th-text="*{{organization}}">
+      <dd data-th-text="|*{organization.name} , *{organization.addressStreet}, *{organization.addressPostcode} ,*{organization.addressCity}|">
        organizationValue
       </dd> 
       <dt data-th-text="#{label_product_productmanager}">
        productManager
       </dt> 
-      <dd data-th-text="*{{productManager}}">
+      <dd data-th-text="|*{productManager.name} *{productManager.surname}, *{productManager.email}|">
        productManagerValue
       </dd> 
       <hr> 
