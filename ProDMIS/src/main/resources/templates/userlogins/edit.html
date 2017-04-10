@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html data-layout-decorator="layouts/default-layout"> 
  <head> 
-  <meta charset="utf-8" data-th-remove="all" /> 
+  <meta charset="UTF-8" data-th-remove="all" /> 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" data-th-remove="all" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1" data-th-remove="all" /> 
   <meta name="description" content="ProDMIS" data-th-remove="all" /> 
@@ -9,8 +9,8 @@
   <link data-th-href="@{/public/img/favicon.ico}" data-th-remove="all" rel="icon" href="../../static/public/img/favicon.ico" /> 
   <link rel="shortcut icon" href="../../static/public/img/favicon.ico" data-th-remove="all" /> 
   <link rel="apple-touch-icon" href="../../static/public/img/apple-touch-icon.png" data-th-remove="all" /> 
-  <title data-th-text="#{label_create_entity(#{label_organization})}">ProDMIS
-  - Create Organization</title> 
+  <title data-th-text="#{label_edit_entity(#{label_userlogin})}">ProDMIS
+  - Edit UserLogin</title> 
   <!-- Bootstrap --> 
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" data-th-remove="all" /> 
   <!-- Font Awesome --> 
@@ -62,15 +62,14 @@
            <li><a href="#">Submenu 1</a></li> 
            <li><a href="#">Submenu 2</a></li> 
            <li><a href="#">Submenu 3</a></li> 
-          </ul> </li> 
+          </ul></li> 
         </ul> 
        </div> 
        <!-- User Menu --> 
        <div class="container upper-nav"> 
         <ul class="nav navbar-nav navbar-right session"> 
-         <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span data-th-text="#{label_user}">User</span></li> 
-         <li data-th-text="#{label_last_access(00-00-0000)}"> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>Last Access: 00-00-0000</li> 
-         <li><button type="submit" class="exit"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> <span data-th-text="#{label_exit}">Exit</span></button></li> 
+         <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span>User</li> 
+         <li><button type="submit" class="exit"> <span class="glyphicon glyphicon-off" aria-hidden="true"></span><span>Exit</span> </button></li> 
         </ul> 
         <ul class="nav navbar-nav navbar-right links"> 
          <li><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <span data-th-text="#{label_contact}">Contact</span></a></li> 
@@ -85,66 +84,67 @@
    <!--START CONTENT--> 
    <section data-layout-fragment="content"> 
     <div class="container-fluid content"> 
-     <h1 data-th-text="#{label_create_entity(#{label_organization})}">Create Organization</h1> 
+     <h1 data-th-text="#{label_edit_entity(#{label_userlogin})}">Edit UserLogin</h1> 
      <!--START FORM--> 
-     <form class="form-horizontal" method="POST" data-th-object="${organization}" data-th-action="@{/organizations}"> 
+     <form class="form-horizontal" method="POST" data-th-object="${userLogin}" data-th-action="@{/userlogins/{id}(id=*{id})}"> 
+      <input type="hidden" name="_method" value="PUT" /> 
       <fieldset> 
-       <legend data-th-text="#{label_data_entity(#{label_organization})}">Organization data </legend> 
-       <div class="form-group" data-th-classappend="${#fields.hasErrors('name')}? 'has-error has-feedback'"> 
-        <label for="name" class="col-md-3 control-label" data-th-text="#{label_organization_name}">name</label> 
+       <div class="form-group" data-th-classappend="${#fields.hasErrors('username')}? 'has-error has-feedback'"> 
+        <label for="username" class="col-md-3 control-label" data-th-text="#{label_userlogin_username}">username</label> 
         <div class="col-md-3"> 
-         <input id="name" name="name" data-th-value="*{{name}}" type="text" class="form-control" placeholder="name" data-th-placeholder="#{label_organization_name}" data-toggle="tooltip" /> 
+         <input id="username" name="username" data-th-value="*{{username}}" type="text" class="form-control" placeholder="username" data-th-placeholder="#{label_userlogin_username}" data-toggle="tooltip" /> 
+         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('username')}" data-th-errors="*{username}">Help message.</span> 
+        </div> 
+       </div> 
+       <div class="form-group" data-th-classappend="${#fields.hasErrors('password')}? 'has-error has-feedback'"> 
+        <label for="password" class="col-md-3 control-label" data-th-text="#{label_userlogin_password}">password</label> 
+        <div class="col-md-3"> 
+         <input id="password" name="password" data-th-value="*{{password}}" type="text" class="form-control" placeholder="password" data-th-placeholder="#{label_userlogin_password}" data-toggle="tooltip" /> 
+         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('password')}" data-th-errors="*{password}">Help message.</span> 
+        </div> 
+       </div> 
+       <div class="form-group" data-th-classappend="${#fields.hasErrors('name')}? 'has-error has-feedback'"> 
+        <label for="name" class="col-md-3 control-label" data-th-text="#{label_userlogin_name}">name</label> 
+        <div class="col-md-3"> 
+         <input id="name" name="name" data-th-value="*{{name}}" type="text" class="form-control" placeholder="name" data-th-placeholder="#{label_userlogin_name}" data-toggle="tooltip" /> 
          <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}">Help message.</span> 
         </div> 
        </div> 
-       <div class="form-group" data-th-classappend="${#fields.hasErrors('addressStreet')}? 'has-error has-feedback'"> 
-        <label for="addressStreet" class="col-md-3 control-label" data-th-text="#{label_organization_addressstreet}">addressStreet</label> 
+       <div class="form-group" data-th-classappend="${#fields.hasErrors('surname')}? 'has-error has-feedback'"> 
+        <label for="surname" class="col-md-3 control-label" data-th-text="#{label_userlogin_surname}">surname</label> 
         <div class="col-md-3"> 
-         <input id="addressStreet" name="addressStreet" data-th-value="*{{addressStreet}}" type="text" class="form-control" placeholder="addressStreet" data-th-placeholder="#{label_organization_addressstreet}" data-toggle="tooltip" /> 
-         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('addressStreet')}" data-th-errors="*{addressStreet}">Help message.</span> 
+         <input id="surname" name="surname" data-th-value="*{{surname}}" type="text" class="form-control" placeholder="surname" data-th-placeholder="#{label_userlogin_surname}" data-toggle="tooltip" /> 
+         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('surname')}" data-th-errors="*{surname}">Help message.</span> 
         </div> 
        </div> 
-       <div class="form-group" data-th-classappend="${#fields.hasErrors('addressCity')}? 'has-error has-feedback'"> 
-        <label for="addressCity" class="col-md-3 control-label" data-th-text="#{label_organization_addresscity}">addressCity</label> 
+       <div class="form-group" data-th-classappend="${#fields.hasErrors('email')}? 'has-error has-feedback'"> 
+        <label for="email" class="col-md-3 control-label" data-th-text="#{label_userlogin_email}">email</label> 
         <div class="col-md-3"> 
-         <input id="addressCity" name="addressCity" data-th-value="*{{addressCity}}" type="text" class="form-control" placeholder="addressCity" data-th-placeholder="#{label_organization_addresscity}" data-toggle="tooltip" /> 
-         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('addressCity')}" data-th-errors="*{addressCity}">Help message.</span> 
+         <input id="email" name="email" data-th-value="*{{email}}" type="text" class="form-control" placeholder="email" data-th-placeholder="#{label_userlogin_email}" data-toggle="tooltip" /> 
+         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('email')}" data-th-errors="*{email}">Help message.</span> 
         </div> 
        </div> 
-       <div class="form-group" data-th-classappend="${#fields.hasErrors('addressCountry')}? 'has-error has-feedback'"> 
-        <label for="addressCountry" class="col-md-3 control-label" data-th-text="#{label_organization_addresscountry}">addressCountry</label> 
+       <div class="form-group" data-th-classappend="${#fields.hasErrors('admin')}? 'has-error has-feedback'"> 
+        <label for="admin" class="col-md-3 control-label" data-th-text="#{label_userlogin_admin}">admin</label> 
         <div class="col-md-3"> 
-         <input id="addressCountry" name="addressCountry" data-th-value="*{{addressCountry}}" type="text" class="form-control" placeholder="addressCountry" data-th-placeholder="#{label_organization_addresscountry}" data-toggle="tooltip" /> 
-         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('addressCountry')}" data-th-errors="*{addressCountry}">Help message.</span> 
-        </div> 
-       </div> 
-       <div class="form-group" data-th-classappend="${#fields.hasErrors('addressPostcode')}? 'has-error has-feedback'"> 
-        <label for="addressPostcode" class="col-md-3 control-label" data-th-text="#{label_organization_addresspostcode}">addressPostcode</label> 
-        <div class="col-md-3"> 
-         <input id="addressPostcode" name="addressPostcode" data-th-value="*{{addressPostcode}}" type="text" class="form-control" placeholder="addressPostcode" data-th-placeholder="#{label_organization_addresspostcode}" data-toggle="tooltip" /> 
-         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('addressPostcode')}" data-th-errors="*{addressPostcode}">Help message.</span> 
-        </div> 
-       </div> 
-       <div class="form-group" data-th-classappend="${#fields.hasErrors('description')}? 'has-error has-feedback'"> 
-        <label for="description" class="col-md-3 control-label" data-th-text="#{label_organization_description}">description</label> 
-        <div class="col-md-3"> 
-              <textarea id="description" name="description" data-th-value="*{{description}}" class="form-control" rows="7" cols = "70" placeholder="description" data-th-placeholder="#{label_organization_description}" data-toggle="tooltip"></textarea>   
-         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('description')}" data-th-errors="*{description}">Help message.</span> 
-        </div> 
-               </div> 
-       <div class="form-group" data-th-classappend="${#fields.hasErrors('active')}? 'has-error has-feedback'"> 
-<!--         <label for="active" class="col-md-3 control-label" data-th-text="#{label_organization_active}">active</label>  -->
-        <div class="col-md-3"> 
-<!--          <input type="checkbox" data-th-field="*{active}" class="form-control" data-th-title="#{label_requiredfield}" data-toggle="tooltip" />  -->
-         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('active')}" data-th-errors="*{active}">Help message.</span> 
+         <input type="checkbox" data-th-field="*{admin}" class="form-control" data-th-title="#{label_requiredfield}" data-toggle="tooltip" /> 
+         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('admin')}" data-th-errors="*{admin}">Help message.</span> 
         </div> 
        </div> 
        <div class="form-group" data-th-classappend="${#fields.hasErrors('createTime')}? 'has-error has-feedback'"> 
-<!--         <label for="createTime" class="col-md-3 control-label" data-th-text="#{label_organization_createtime}">createTime</label>  -->
+        <label for="createTime" class="col-md-3 control-label" data-th-text="#{label_userlogin_createtime}">createTime</label> 
         <div class="col-md-3"> 
-<!--          <input id="createTime" name="createTime" data-th-value="*{{createTime}}" type="text" class="form-control datetimepicker" placeholder="createTime" data-th-placeholder="#{label_organization_createtime}" data-th-attr="data-dateformat=${createTime_date_format}" data-toggle="tooltip" />  -->
+         <input id="createTime" name="createTime" data-th-value="*{{createTime}}" type="text" class="form-control datetimepicker" placeholder="createTime" data-th-placeholder="#{label_userlogin_createtime}" data-th-attr="data-dateformat=${createTime_date_format}" data-toggle="tooltip" /> 
          <span data-th-classappend="${#fields.hasErrors('createTime')}? 'glyphicon glyphicon-remove form-control-feedback'" data-th-if="${#fields.hasErrors('createTime')}" aria-hidden="true"></span> 
          <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('createTime')}" data-th-errors="*{createTime}">Help message.</span> 
+        </div> 
+       </div> 
+       <div class="form-group" data-th-classappend="${#fields.hasErrors('organization')}? 'has-error has-feedback'"> 
+        <label for="organization" class="col-md-3 control-label" data-th-text="#{label_userlogin_organization}">Organization</label> 
+        <div class="col-md-6"> 
+         <!-- Select2 --> 
+         <select data-th-field="*{organization}" class="dropdown-select-ajax" style="width: 50%" data-placeholder="Select an option" data-allow-clear="true" data-id-field="id" data-text-fields="name,addressStreet" data-ajax--url="/organizations" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json"> <option data-th-unless="*{organization} == null" data-th-value="*{organization.id}" data-th-text="|*{organization.name} *{organization.addressStreet}|" selected="selected">Organization</option> </select> 
+         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('organization')}" data-th-errors="*{organization}">Help message.</span> 
         </div> 
        </div> 
        <!-- FORM BUTTONS --> 
@@ -152,7 +152,7 @@
         <div class="col-md-12"> 
          <div class="pull-left"> 
           <!-- TODO IE8 --> 
-          <button type="reset" class="btn btn-default" onclick="location.href='list.html'" data-th-onclick="'location.href=\'' + @{/organizations} + '\''" data-th-text="#{label_reset}">Cancel</button> 
+          <button type="reset" class="btn btn-default" onclick="location.href='list.html'" data-th-onclick="'location.href=\'' + @{/userlogins} + '\''" data-th-text="#{label_reset}">Cancel</button> 
          </div> 
          <div class="pull-right"> 
           <input type="submit" value="Accept" data-th-value="#{label_submit}" class="btn btn-primary" /> 
@@ -176,10 +176,8 @@
   <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-1.12.3.js"></script> 
   <!-- Bootstrap --> 
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script> 
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> 
-  <script data-th-remove="all" data-th-src="@{/public/js/bootstrap.min.js}" src="../../static/public/js/ie10-viewport-bug-workaround.js"></script> 
   <!-- Application --> 
-  <script data-th-remove="all" data-th-src="@{/public/js/main.js}" src="../../static/public/js/main.js"></script> 
+  <script src="../../static/public/js/main.js"></script> 
   <div data-layout-fragment="javascript"> 
    <!-- Moment.js --> 
    <script data-th-src="@{/public/js/moment.js}" src="../../static/public/js/moment.js"></script> 
@@ -192,5 +190,7 @@
    <script src="../../static/public/js/jquery.datetimepicker.full.min.js" data-th-src="@{/public/js/jquery.datetimepicker.full.min.js}"></script> 
    <script src="../../static/public/js/datetimepicker-defaults.js" data-th-src="@{/public/js/datetimepicker-defaults.js}"></script> 
   </div> 
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> 
+  <script src="../../static/public/js/ie10-viewport-bug-workaround.js"></script> 
  </body> 
 </html>

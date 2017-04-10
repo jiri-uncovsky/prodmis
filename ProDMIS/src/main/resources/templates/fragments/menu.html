@@ -1,0 +1,75 @@
+<!DOCTYPE html> 
+<html> 
+ <head> 
+  <meta charset="UTF-8" /> 
+  <title>Page menu</title> 
+ </head> 
+ <body> 
+  <!--
+    Only the internal content of the following div is included within
+    the template, in menu fragment
+    --> 
+  <div data-layout-fragment="menu"> 
+   <!-- Main navbar --> 
+   <nav class="navbar navbar-inverse navbar-fixed-top"> 
+    <div class="container"> 
+     <div class="navbar-header"> 
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Menu</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> 
+      <!-- Brand logo --> 
+      <div class="organization-logo navbar-brand"> 
+       <a title="ProDMIS" href="/"> <img alt="ProDMIS" data-th-src="@{/public/img/logo.png}" src="../../static/public/img/logo.png" /> </a> 
+      </div> 
+      <!-- Name application --> 
+      <div class="application-name navbar-brand hidden-xs">
+       <a href="/" data-th-href="@{/}">ProDMIS</a>
+      </div> 
+     </div>
+     <!-- /navbar-header --> 
+     <div id="bs-example-navbar-collapse-1" class="navbar-collapse collapse"> 
+      <ul class="nav navbar-nav"> 
+       <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_comment})}">Comment<span class="caret"></span></a> 
+        <ul class="dropdown-menu"> 
+         <li><a href="/comments/create-form" data-th-text="#{label_create_entity(#{label_comment})}">Create Comment</a></li> 
+         <li><a href="/comments" data-th-text="#{label_list_entity(#{label_comment_plural})}">List Comment</a></li> 
+        </ul> </li> 
+       <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_document})}">Document<span class="caret"></span></a> 
+        <ul class="dropdown-menu"> 
+         <li><a href="/documents/create-form" data-th-text="#{label_create_entity(#{label_document})}">Create Document</a></li> 
+         <li><a href="/documents" data-th-text="#{label_list_entity(#{label_document_plural})}">List Document</a></li> 
+        </ul> </li> 
+       <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_documentrevision})}">DocumentRevision<span class="caret"></span></a> 
+        <ul class="dropdown-menu"> 
+         <li><a href="/documentrevisions/create-form" data-th-text="#{label_create_entity(#{label_documentrevision})}">Create DocumentRevision</a></li> 
+         <li><a href="/documentrevisions" data-th-text="#{label_list_entity(#{label_documentrevision_plural})}">List DocumentRevision</a></li> 
+        </ul> </li> 
+       <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_organization})}">Organization<span class="caret"></span></a> 
+        <ul class="dropdown-menu"> 
+         <li><a href="/organizations/create-form" data-th-text="#{label_create_entity(#{label_organization})}">Create Organization</a></li> 
+         <li><a href="/organizations" data-th-text="#{label_list_entity(#{label_organization_plural})}">List Organization</a></li> 
+        </ul> </li> 
+       <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_product})}">Product<span class="caret"></span></a> 
+        <ul class="dropdown-menu"> 
+         <li><a href="/products/create-form" data-th-text="#{label_create_entity(#{label_product})}">Create Product</a></li> 
+         <li><a href="/products" data-th-text="#{label_list_entity(#{label_product_plural})}">List Product</a></li> 
+        </ul> </li> 
+       <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_userlogin})}">UserLogin<span class="caret"></span></a> 
+        <ul class="dropdown-menu"> 
+         <li><a href="/userlogins/create-form" data-th-text="#{label_create_entity(#{label_userlogin})}">Create UserLogin</a></li> 
+         <li><a href="/userlogins" data-th-text="#{label_list_entity(#{label_userlogin_plural})}">List UserLogin</a></li> 
+        </ul> </li> 
+      </ul> 
+      <!-- Languages --> 
+      <div data-layout-include="fragments/languages :: languages"> 
+       <span>Languages</span> 
+      </div> 
+      <!-- Menu --> 
+      <div data-layout-include="fragments/session-links :: session"> 
+       <!-- Content replaced by languages and session template fragment session-links.html --> 
+       <span>User session data</span> 
+      </div> 
+     </div> 
+    </div> 
+   </nav> 
+  </div> 
+ </body> 
+</html>

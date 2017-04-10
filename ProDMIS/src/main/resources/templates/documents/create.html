@@ -9,8 +9,8 @@
   <link data-th-href="@{/public/img/favicon.ico}" data-th-remove="all" rel="icon" href="../../static/public/img/favicon.ico" /> 
   <link rel="shortcut icon" href="../../static/public/img/favicon.ico" data-th-remove="all" /> 
   <link rel="apple-touch-icon" href="../../static/public/img/apple-touch-icon.png" data-th-remove="all" /> 
-  <title data-th-text="#{label_create_entity(#{label_organization})}">ProDMIS
-  - Create Organization</title> 
+  <title data-th-text="#{label_create_entity(#{label_document})}">ProDMIS
+  - Create Document</title> 
   <!-- Bootstrap --> 
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" data-th-remove="all" /> 
   <!-- Font Awesome --> 
@@ -85,66 +85,46 @@
    <!--START CONTENT--> 
    <section data-layout-fragment="content"> 
     <div class="container-fluid content"> 
-     <h1 data-th-text="#{label_create_entity(#{label_organization})}">Create Organization</h1> 
+     <h1 data-th-text="#{label_create_entity(#{label_document})}">Create Document</h1> 
      <!--START FORM--> 
-     <form class="form-horizontal" method="POST" data-th-object="${organization}" data-th-action="@{/organizations}"> 
+     <form class="form-horizontal" method="POST" data-th-object="${document}" data-th-action="@{/documents}"> 
       <fieldset> 
-       <legend data-th-text="#{label_data_entity(#{label_organization})}">Organization data </legend> 
+       <legend data-th-text="#{label_data_entity(#{label_document})}">Document data </legend> 
        <div class="form-group" data-th-classappend="${#fields.hasErrors('name')}? 'has-error has-feedback'"> 
-        <label for="name" class="col-md-3 control-label" data-th-text="#{label_organization_name}">name</label> 
+        <label for="name" class="col-md-3 control-label" data-th-text="#{label_document_name}">name</label> 
         <div class="col-md-3"> 
-         <input id="name" name="name" data-th-value="*{{name}}" type="text" class="form-control" placeholder="name" data-th-placeholder="#{label_organization_name}" data-toggle="tooltip" /> 
+         <input id="name" name="name" data-th-value="*{{name}}" type="text" class="form-control" placeholder="name" data-th-placeholder="#{label_document_name}" data-toggle="tooltip" /> 
          <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}">Help message.</span> 
         </div> 
        </div> 
-       <div class="form-group" data-th-classappend="${#fields.hasErrors('addressStreet')}? 'has-error has-feedback'"> 
-        <label for="addressStreet" class="col-md-3 control-label" data-th-text="#{label_organization_addressstreet}">addressStreet</label> 
+       <div class="form-group" data-th-classappend="${#fields.hasErrors('type')}? 'has-error has-feedback'"> 
+        <label for="type" class="col-md-3 control-label" data-th-text="#{label_document_type}">type</label> 
         <div class="col-md-3"> 
-         <input id="addressStreet" name="addressStreet" data-th-value="*{{addressStreet}}" type="text" class="form-control" placeholder="addressStreet" data-th-placeholder="#{label_organization_addressstreet}" data-toggle="tooltip" /> 
-         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('addressStreet')}" data-th-errors="*{addressStreet}">Help message.</span> 
-        </div> 
-       </div> 
-       <div class="form-group" data-th-classappend="${#fields.hasErrors('addressCity')}? 'has-error has-feedback'"> 
-        <label for="addressCity" class="col-md-3 control-label" data-th-text="#{label_organization_addresscity}">addressCity</label> 
-        <div class="col-md-3"> 
-         <input id="addressCity" name="addressCity" data-th-value="*{{addressCity}}" type="text" class="form-control" placeholder="addressCity" data-th-placeholder="#{label_organization_addresscity}" data-toggle="tooltip" /> 
-         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('addressCity')}" data-th-errors="*{addressCity}">Help message.</span> 
-        </div> 
-       </div> 
-       <div class="form-group" data-th-classappend="${#fields.hasErrors('addressCountry')}? 'has-error has-feedback'"> 
-        <label for="addressCountry" class="col-md-3 control-label" data-th-text="#{label_organization_addresscountry}">addressCountry</label> 
-        <div class="col-md-3"> 
-         <input id="addressCountry" name="addressCountry" data-th-value="*{{addressCountry}}" type="text" class="form-control" placeholder="addressCountry" data-th-placeholder="#{label_organization_addresscountry}" data-toggle="tooltip" /> 
-         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('addressCountry')}" data-th-errors="*{addressCountry}">Help message.</span> 
-        </div> 
-       </div> 
-       <div class="form-group" data-th-classappend="${#fields.hasErrors('addressPostcode')}? 'has-error has-feedback'"> 
-        <label for="addressPostcode" class="col-md-3 control-label" data-th-text="#{label_organization_addresspostcode}">addressPostcode</label> 
-        <div class="col-md-3"> 
-         <input id="addressPostcode" name="addressPostcode" data-th-value="*{{addressPostcode}}" type="text" class="form-control" placeholder="addressPostcode" data-th-placeholder="#{label_organization_addresspostcode}" data-toggle="tooltip" /> 
-         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('addressPostcode')}" data-th-errors="*{addressPostcode}">Help message.</span> 
+         <input id="type" name="type" data-th-value="*{{type}}" type="text" class="form-control" placeholder="type" data-th-placeholder="#{label_document_type}" data-toggle="tooltip" /> 
+         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('type')}" data-th-errors="*{type}">Help message.</span> 
         </div> 
        </div> 
        <div class="form-group" data-th-classappend="${#fields.hasErrors('description')}? 'has-error has-feedback'"> 
-        <label for="description" class="col-md-3 control-label" data-th-text="#{label_organization_description}">description</label> 
+        <label for="description" class="col-md-3 control-label" data-th-text="#{label_document_description}">description</label> 
         <div class="col-md-3"> 
-              <textarea id="description" name="description" data-th-value="*{{description}}" class="form-control" rows="7" cols = "70" placeholder="description" data-th-placeholder="#{label_organization_description}" data-toggle="tooltip"></textarea>   
+         <input id="description" name="description" data-th-value="*{{description}}" type="text" class="form-control" placeholder="description" data-th-placeholder="#{label_document_description}" data-toggle="tooltip" /> 
          <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('description')}" data-th-errors="*{description}">Help message.</span> 
         </div> 
-               </div> 
-       <div class="form-group" data-th-classappend="${#fields.hasErrors('active')}? 'has-error has-feedback'"> 
-<!--         <label for="active" class="col-md-3 control-label" data-th-text="#{label_organization_active}">active</label>  -->
-        <div class="col-md-3"> 
-<!--          <input type="checkbox" data-th-field="*{active}" class="form-control" data-th-title="#{label_requiredfield}" data-toggle="tooltip" />  -->
-         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('active')}" data-th-errors="*{active}">Help message.</span> 
+       </div> 
+       <div class="form-group" data-th-classappend="${#fields.hasErrors('product')}? 'has-error has-feedback'"> 
+        <label for="product" class="col-md-3 control-label" data-th-text="#{label_document_product}">Product</label> 
+        <div class="col-md-6"> 
+         <!-- Select2 --> 
+         <select data-th-field="*{product}" class="dropdown-select-ajax" style="width: 50%" data-placeholder="Select an option" data-allow-clear="true" data-id-field="id" data-text-fields="code,name" data-ajax--url="/products" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json"> <option data-th-unless="*{product} == null" data-th-value="*{product.id}" data-th-text="|*{product.code} *{product.name}|" selected="selected">Product</option> </select> 
+         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('product')}" data-th-errors="*{product}">Help message.</span> 
         </div> 
        </div> 
-       <div class="form-group" data-th-classappend="${#fields.hasErrors('createTime')}? 'has-error has-feedback'"> 
-<!--         <label for="createTime" class="col-md-3 control-label" data-th-text="#{label_organization_createtime}">createTime</label>  -->
-        <div class="col-md-3"> 
-<!--          <input id="createTime" name="createTime" data-th-value="*{{createTime}}" type="text" class="form-control datetimepicker" placeholder="createTime" data-th-placeholder="#{label_organization_createtime}" data-th-attr="data-dateformat=${createTime_date_format}" data-toggle="tooltip" />  -->
-         <span data-th-classappend="${#fields.hasErrors('createTime')}? 'glyphicon glyphicon-remove form-control-feedback'" data-th-if="${#fields.hasErrors('createTime')}" aria-hidden="true"></span> 
-         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('createTime')}" data-th-errors="*{createTime}">Help message.</span> 
+       <div class="form-group" data-th-classappend="${#fields.hasErrors('createdBy')}? 'has-error has-feedback'"> 
+        <label for="createdBy" class="col-md-3 control-label" data-th-text="#{label_document_createdby}">UserLogin</label> 
+        <div class="col-md-6"> 
+         <!-- Select2 --> 
+         <select data-th-field="*{createdBy}" class="dropdown-select-ajax" style="width: 50%" data-placeholder="Select an option" data-allow-clear="true" data-id-field="id" data-text-fields="username,password" data-ajax--url="/userlogins" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json"> <option data-th-unless="*{createdBy} == null" data-th-value="*{createdBy.id}" data-th-text="|*{createdBy.username} *{createdBy.password}|" selected="selected">UserLogin</option> </select> 
+         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('createdBy')}" data-th-errors="*{createdBy}">Help message.</span> 
         </div> 
        </div> 
        <!-- FORM BUTTONS --> 
@@ -152,7 +132,7 @@
         <div class="col-md-12"> 
          <div class="pull-left"> 
           <!-- TODO IE8 --> 
-          <button type="reset" class="btn btn-default" onclick="location.href='list.html'" data-th-onclick="'location.href=\'' + @{/organizations} + '\''" data-th-text="#{label_reset}">Cancel</button> 
+          <button type="reset" class="btn btn-default" onclick="location.href='list.html'" data-th-onclick="'location.href=\'' + @{/documents} + '\''" data-th-text="#{label_reset}">Cancel</button> 
          </div> 
          <div class="pull-right"> 
           <input type="submit" value="Accept" data-th-value="#{label_submit}" class="btn btn-primary" /> 
