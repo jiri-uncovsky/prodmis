@@ -14,8 +14,19 @@
     <li><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;<span class="hidden-sm" data-th-text="#{label_contact}"> Contact</span></a></li> 
     <li><a href="#"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;<span class="hidden-sm" data-th-text="#{label_help}"> Help</span></a></li> 
    </ul> 
-   <ul class="nav navbar-nav navbar-right upper-nav session"> 
-    <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;<span class="hidden-sm" data-th-text="#{label_user}"> User</span></a></li> 
+   <ul class="nav navbar-nav navbar-right upper-nav session">
+       <li xmlns:th="http://www.thymeleaf.org" th:if="${session.username}">
+         <a href="/login?logout">
+           <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
+           <span xmlns:th="http://www.thymeleaf.org" class="hidden-sm" th:text="${session.username}">User</span>
+         </a>
+       </li> 
+       <li xmlns:th="http://www.thymeleaf.org" th:unless="${session.username}">
+         <a href="login">
+           <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
+           <span class="hidden-sm" data-th-text="#{label_login}"> Log in</span>
+         </a>
+       </li> 
    </ul> 
   </div> 
  </body> 

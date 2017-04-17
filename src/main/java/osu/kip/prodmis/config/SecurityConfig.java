@@ -1,7 +1,5 @@
 package osu.kip.prodmis.config;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -13,8 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.util.matcher.RequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -23,37 +19,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
     http
             .authorizeRequests()
-                .antMatchers("/", "/login", "/logout", "/403", "/public/**", "/img/**").permitAll()
+                .antMatchers("/", "/login", "/403", "/public/**", "/img/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
                 .loginPage("/login")
+                .failureUrl("/login?error")
                 .permitAll()
                 .and()
             .logout()
                 .permitAll()
+                .logoutSuccessUrl("/login?logout")
+                .and()
+            .exceptionHandling()
+                .accessDeniedPage("/403")
                 .and()
             .csrf();
-    
-//            .
-//            .antMatchers().access("hasRole('ROLE_ADMIN')")
-//            .and()
-//            .formLogin().loginPage("/login").failureUrl("/login?error")
-//            .usernameParameter("username").passwordParameter("password")
-//            .and()
-//              .logout().logoutSuccessUrl("/login?logout")
-//            .and()
-//              .exceptionHandling().accessDeniedPage("/403")
-//            .and()
-//              .csrf();
 	} 
   
   @Autowired
   @Qualifier("userDetailsService")
   UserDetailsService usersDetailsService;
-  
-  //@Autowired
-  //private DataSource dataSource;
   
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
