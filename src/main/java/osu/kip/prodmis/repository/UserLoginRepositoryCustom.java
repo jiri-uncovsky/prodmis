@@ -4,4 +4,5 @@ import osu.kip.prodmis.domain.UserLogin;
 
 @RooJpaRepositoryCustom(entity = UserLogin.class, defaultSearchResult = UserLogin.class)
 public interface UserLoginRepositoryCustom {
+  public UserLogin find(String username);
 }

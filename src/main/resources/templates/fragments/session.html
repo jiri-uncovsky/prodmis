@@ -12,7 +12,26 @@
   <div data-layout-fragment="session"> 
    <!-- User menu --> 
    <ul class="nav navbar-nav navbar-right upper-nav session"> 
-    <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;<span class="hidden-sm" data-th-text="#{label_user}"> User</span></a></li> 
+    <li>
+      <a href="#">
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
+       <div xmlns:th="http://www.thymeleaf.org" th:if="${session.username}" th:text="${session.username}">404</div>
+       <div xmlns:th="http://www.thymeleaf.org" th:unless="${session.username}" th:text="${session.test}">404</div>
+     
+        <div th:switch="${principal.username}">
+          <p th:case="'test'">
+            <span class="hidden-sm" data-th-text="#{label_help}"> UserEEE</span>
+          </p>
+          <p th:case="'user'">
+            <span class="hidden-sm" data-th-text="#{label_help}"> UserXXXX</span>
+          </p>
+          <p th:case="*">
+            
+            <span class="hidden-sm" data-th-text="#{label_contact}">Log in</span>
+          </p>
+        </div>
+      </a>
+    </li> 
    </ul> 
   </div> 
  </body> 
