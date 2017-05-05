@@ -15,12 +15,23 @@
     <li><a href="#"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;<span class="hidden-sm" data-th-text="#{label_help}"> Help</span></a></li> 
    </ul> 
    <ul class="nav navbar-nav navbar-right upper-nav session">
-       <li xmlns:th="http://www.thymeleaf.org" th:if="${session.username}">
+       <li class="dropdown" xmlns:th="http://www.thymeleaf.org" th:if="${session.username}">
+        <!--
          <a href="/login?logout">
            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
            <span xmlns:th="http://www.thymeleaf.org" class="hidden-sm" th:text="${session.username}">User</span>
          </a>
-       </li> 
+         -->
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+             <!--data-th-utext="#{label_menu_entry(#{label_product})}"> -->
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
+            <span xmlns:th="http://www.thymeleaf.org" class="hidden-sm" th:text="${session.username}">User</span>
+          </a> 
+        <ul class="dropdown-menu"> 
+         <li><a href="/logout" data-th-text="#{label_logout}">Logout</a></li> 
+         <li><a th:href="@{/userlogins/{id}/edit-form(id=${session.id})}" data-th-text="#{label_edit}">Edit</a></li> 
+        </ul>
+        </li>
        <li xmlns:th="http://www.thymeleaf.org" th:unless="${session.username}">
          <a href="login">
            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;

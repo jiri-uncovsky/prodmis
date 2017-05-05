@@ -40,7 +40,7 @@
        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_documentrevision})}">DocumentRevision<span class="caret"></span></a> 
         <ul class="dropdown-menu"> 
          <li><a href="/documentrevisions/create-form" data-th-text="#{label_create_entity(#{label_documentrevision})}">Create DocumentRevision</a></li> 
-         <li><a href="/documentrevisions" data-th-text="#{label_list_entity(#{label_documentrevision_plural})}">List DocumentRevision</a></li> 
+          <li><a href="/documentrevisions" data-th-text="#{label_list_entity(#{label_documentrevision_plural})}">List DocumentRevision</a></li> 
         </ul> </li> 
        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_organization})}">Organization<span class="caret"></span></a> 
         <ul class="dropdown-menu"> 
@@ -52,11 +52,14 @@
          <li><a href="/products/create-form" data-th-text="#{label_create_entity(#{label_product})}">Create Product</a></li> 
          <li><a href="/products" data-th-text="#{label_list_entity(#{label_product_plural})}">List Product</a></li> 
         </ul> </li> 
-       <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_userlogin})}">UserLogin<span class="caret"></span></a> 
+        
+       <li class="dropdown"> 
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_userlogin})}">UserLogin<span class="caret"></span></a> 
         <ul class="dropdown-menu"> 
          <li><a href="/userlogins/create-form" data-th-text="#{label_create_entity(#{label_userlogin})}">Create UserLogin</a></li> 
          <li><a href="/userlogins" data-th-text="#{label_list_entity(#{label_userlogin_plural})}">List UserLogin</a></li> 
-        </ul> </li> 
+        </ul> 
+       </li> 
       </ul> 
       <!-- Languages --> 
       <div data-layout-include="fragments/languages :: languages"> 

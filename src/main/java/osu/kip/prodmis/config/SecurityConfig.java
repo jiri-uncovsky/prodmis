@@ -19,7 +19,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
     http
             .authorizeRequests()
-                .antMatchers("/", "/login", "/403", "/public/**", "/img/**").permitAll()
+                .antMatchers("/", "/login", "/logout", "/403", "/public/**", "/img/**").permitAll()
+                .antMatchers("/userlogins").hasAuthority("admin")
+                .antMatchers("/userlogins/create-form").hasAuthority("admin")
+                .requestMatchers(new EditFormMatcher()).denyAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
@@ -28,8 +31,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
             .logout()
-                .permitAll()
+                .invalidateHttpSession(true)
+                .logoutUrl("/logout")
                 .logoutSuccessUrl("/login?logout")
+                .permitAll()
                 .and()
             .exceptionHandling()
                 .accessDeniedPage("/403")
@@ -45,11 +50,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
     auth.userDetailsService(usersDetailsService).passwordEncoder(passwordEncoder());  
 	}	
-  
+ 
   @Bean
 	public PasswordEncoder passwordEncoder(){
 		PasswordEncoder encoder = new BCryptPasswordEncoder();
 		return encoder;
 	}
+
+
+  
   
 } 

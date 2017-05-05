@@ -39,6 +39,6 @@ public class UserService implements UserDetailsService {
     } else {
       authorities = Arrays.asList(new SimpleGrantedAuthority("user"));
     }
-    return new User(username, new BCryptPasswordEncoder().encode(user.getPassword()),	true, true, true, true, Arrays.asList(new SimpleGrantedAuthority("admin")));
+    return new User(username, new BCryptPasswordEncoder().encode(user.getPassword()),	true, true, true, true, authorities);
 	}
 }
