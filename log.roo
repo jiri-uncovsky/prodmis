@@ -6,3 +6,11 @@
 project scan now 
 project scan status 
 system properties
+// Spring Roo 2.0.0.M3 [rev 20a0f71] log opened at 2017-08-23 10:52:32
+field file --fieldName pFile --contentType TXT --class ~.domain.Document --autoUpload
+// [failed] field file --fieldName pFile --contentType TXT --class ~.domain.Document --autoUpload --column none
+// [failed] field file --fieldName pFile --contentType TXT --autoUpload --column none
+// Spring Roo 2.0.0.M3 [rev 20a0f71] log closed at 2017-08-23 11:13:29
+// Spring Roo 2.0.0.M3 [rev 20a0f71] log opened at 2017-08-23 11:14:10
+// [failed] field file --fieldName pFile --contentType TXT --class ~.domain.Document --autoUpload --column none
+// Spring Roo 2.0.0.M3 [rev 20a0f71] log closed at 2017-08-23 11:33:20
