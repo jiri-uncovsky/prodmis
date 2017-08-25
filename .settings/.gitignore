@@ -2,3 +2,6 @@
 /org.eclipse.jdt.core.prefs
 /org.eclipse.m2e.core.prefs
 /org.eclipse.wst.common.project.facet.core.xml
+/org.eclipse.ajdt.core.prefs
+/org.eclipse.jdt.apt.core.prefs
+/org.springframework.ide.eclipse.roo.core.prefs

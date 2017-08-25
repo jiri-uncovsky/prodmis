@@ -22,9 +22,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import osu.kip.prodmis.controler.ProductController;
 import osu.kip.prodmis.datatables.DatatablesData;
 import osu.kip.prodmis.datatables.DatatablesPageable;
+import osu.kip.prodmis.domain.Comment;
 import osu.kip.prodmis.domain.Document;
 import osu.kip.prodmis.domain.Product;
-import osu.kip.prodmis.domain.Comment;
 import osu.kip.prodmis.repository.GlobalSearch;
 
 privileged aspect ProductController_Roo_Thymeleaf {

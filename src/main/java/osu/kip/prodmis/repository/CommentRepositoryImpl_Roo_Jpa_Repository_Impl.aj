@@ -116,11 +116,11 @@ privileged aspect CommentRepositoryImpl_Roo_Jpa_Repository_Impl {
         return new PageImpl<Comment>(results, pageable, totalFound);
     }
     
-    public Page<Comment> CommentRepositoryImpl.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable) {
+    public Page<Comment> CommentRepositoryImpl.findAllByComment(Comment commentField, GlobalSearch globalSearch, Pageable pageable) {
         NumberPath<Long> idComment = new NumberPath<Long>(Long.class, "id");
         QComment comment = QComment.comment;
         JPQLQuery query = getQueryFrom(comment);
-        BooleanBuilder where = new BooleanBuilder(comment.userLogin.eq(userLoginField));
+        BooleanBuilder where = new BooleanBuilder(comment.replyTo.eq(commentField));
 
         if (globalSearch != null) {
             String txt = globalSearch.getText();
@@ -160,11 +160,11 @@ privileged aspect CommentRepositoryImpl_Roo_Jpa_Repository_Impl {
         return new PageImpl<Comment>(results, pageable, totalFound);
     }
     
-    public Page<Comment> CommentRepositoryImpl.findAllByComment(Comment commentField, GlobalSearch globalSearch, Pageable pageable) {
+    public Page<Comment> CommentRepositoryImpl.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable) {
         NumberPath<Long> idComment = new NumberPath<Long>(Long.class, "id");
         QComment comment = QComment.comment;
         JPQLQuery query = getQueryFrom(comment);
-        BooleanBuilder where = new BooleanBuilder(comment.replyTo.eq(commentField));
+        BooleanBuilder where = new BooleanBuilder(comment.userLogin.eq(userLoginField));
 
         if (globalSearch != null) {
             String txt = globalSearch.getText();

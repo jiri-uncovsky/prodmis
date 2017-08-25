@@ -77,24 +77,24 @@ privileged aspect CommentServiceImpl_Roo_Service_Impl {
         return commentRepository.countByProductId(id);
     }
     
-    public Long CommentServiceImpl.countByUserLoginId(Long id) {
-        return commentRepository.countByUserLoginId(id);
-    }
-    
     public Long CommentServiceImpl.countByReplyToId(Long id) {
         return commentRepository.countByReplyToId(id);
+    }
+    
+    public Long CommentServiceImpl.countByUserLoginId(Long id) {
+        return commentRepository.countByUserLoginId(id);
     }
     
     public Page<Comment> CommentServiceImpl.findAllByProduct(Product productField, GlobalSearch globalSearch, Pageable pageable) {
         return commentRepository.findAllByProduct(productField, globalSearch, pageable);
     }
     
-    public Page<Comment> CommentServiceImpl.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable) {
-        return commentRepository.findAllByUserLogin(userLoginField, globalSearch, pageable);
-    }
-    
     public Page<Comment> CommentServiceImpl.findAllByComment(Comment commentField, GlobalSearch globalSearch, Pageable pageable) {
         return commentRepository.findAllByComment(commentField, globalSearch, pageable);
+    }
+    
+    public Page<Comment> CommentServiceImpl.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable) {
+        return commentRepository.findAllByUserLogin(userLoginField, globalSearch, pageable);
     }
     
 }

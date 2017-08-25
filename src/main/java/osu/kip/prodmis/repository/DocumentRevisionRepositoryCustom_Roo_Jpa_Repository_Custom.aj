@@ -14,6 +14,6 @@ import osu.kip.prodmis.repository.GlobalSearch;
 privileged aspect DocumentRevisionRepositoryCustom_Roo_Jpa_Repository_Custom {
     
     public abstract Page<DocumentRevision> DocumentRevisionRepositoryCustom.findAll(GlobalSearch globalSearch, Pageable pageable);    
-    public abstract Page<DocumentRevision> DocumentRevisionRepositoryCustom.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable);    
     public abstract Page<DocumentRevision> DocumentRevisionRepositoryCustom.findAllByDocument(Document documentField, GlobalSearch globalSearch, Pageable pageable);    
+    public abstract Page<DocumentRevision> DocumentRevisionRepositoryCustom.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable);    
 }

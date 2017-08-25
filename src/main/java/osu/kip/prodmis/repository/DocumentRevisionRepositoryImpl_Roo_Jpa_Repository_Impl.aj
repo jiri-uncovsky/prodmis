@@ -80,11 +80,11 @@ privileged aspect DocumentRevisionRepositoryImpl_Roo_Jpa_Repository_Impl {
         return new PageImpl<DocumentRevision>(results, pageable, totalFound);
     }
     
-    public Page<DocumentRevision> DocumentRevisionRepositoryImpl.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable) {
+    public Page<DocumentRevision> DocumentRevisionRepositoryImpl.findAllByDocument(Document documentField, GlobalSearch globalSearch, Pageable pageable) {
         NumberPath<Long> idDocumentRevision = new NumberPath<Long>(Long.class, "id");
         QDocumentRevision documentRevision = QDocumentRevision.documentRevision;
         JPQLQuery query = getQueryFrom(documentRevision);
-        BooleanBuilder where = new BooleanBuilder(documentRevision.createdBy.eq(userLoginField));
+        BooleanBuilder where = new BooleanBuilder(documentRevision.document.eq(documentField));
 
         if (globalSearch != null) {
             String txt = globalSearch.getText();
@@ -132,11 +132,11 @@ privileged aspect DocumentRevisionRepositoryImpl_Roo_Jpa_Repository_Impl {
         return new PageImpl<DocumentRevision>(results, pageable, totalFound);
     }
     
-    public Page<DocumentRevision> DocumentRevisionRepositoryImpl.findAllByDocument(Document documentField, GlobalSearch globalSearch, Pageable pageable) {
+    public Page<DocumentRevision> DocumentRevisionRepositoryImpl.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable) {
         NumberPath<Long> idDocumentRevision = new NumberPath<Long>(Long.class, "id");
         QDocumentRevision documentRevision = QDocumentRevision.documentRevision;
         JPQLQuery query = getQueryFrom(documentRevision);
-        BooleanBuilder where = new BooleanBuilder(documentRevision.document.eq(documentField));
+        BooleanBuilder where = new BooleanBuilder(documentRevision.createdBy.eq(userLoginField));
 
         if (globalSearch != null) {
             String txt = globalSearch.getText();
