@@ -24,6 +24,7 @@ import osu.kip.prodmis.datatables.DatatablesData;
 import osu.kip.prodmis.datatables.DatatablesPageable;
 import osu.kip.prodmis.domain.Document;
 import osu.kip.prodmis.domain.Product;
+import osu.kip.prodmis.domain.Comment;
 import osu.kip.prodmis.repository.GlobalSearch;
 
 privileged aspect ProductController_Roo_Thymeleaf {
@@ -114,6 +115,21 @@ privileged aspect ProductController_Roo_Thymeleaf {
         Page<Document> document = listDocument(id, search, pageable);
         long allAvailableDocumentDetails = documentService.countByProductId(id.getId());
         return new DatatablesData<Document>(document, allAvailableDocumentDetails, draw);
+    }
+    
+    @RequestMapping(value = "/{id}/comments/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public Page<Comment> ProductController.listComment(@PathVariable("id") Product id, GlobalSearch search, Pageable pageable) {
+        Page<Comment> comment = commentService.findAllByProduct(id, search, pageable);
+        return comment;
+    }
+    
+    @RequestMapping(method = RequestMethod.GET, value = "/{id}/comments/", produces = "application/vnd.datatables+json")
+    @ResponseBody
+    public DatatablesData<Comment> ProductController.listComment(@PathVariable("id") Product id, GlobalSearch search, Pageable pageable, @RequestParam("draw") Integer draw) {
+        Page<Comment> comment = listComment(id, search, pageable);
+        long allAvailableCommentDetails = commentService.countByProductId(id.getId());
+        return new DatatablesData<Comment>(comment, allAvailableCommentDetails, draw);
     }
     
     public void ProductController.populateForm(Model model) {

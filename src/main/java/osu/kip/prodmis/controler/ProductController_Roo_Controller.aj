@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import osu.kip.prodmis.controler.ProductController;
 import osu.kip.prodmis.service.api.DocumentService;
 import osu.kip.prodmis.service.api.ProductService;
+import osu.kip.prodmis.service.api.CommentService;
 
 privileged aspect ProductController_Roo_Controller {
     
@@ -20,10 +21,13 @@ privileged aspect ProductController_Roo_Controller {
     
     public DocumentService ProductController.documentService;
     
+    public CommentService ProductController.commentService;		//added
+    
     @Autowired
-    public ProductController.new(ProductService productService, DocumentService documentService) {
+    public ProductController.new(ProductService productService, DocumentService documentService, CommentService commentService) {
         this.productService = productService;
         this.documentService = documentService;
+        this.commentService = commentService;					//added
     }
 
 }
