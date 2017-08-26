@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.roo.addon.web.mvc.controller.annotations.RooController;
 import org.springframework.roo.addon.web.mvc.thymeleaf.annotations.RooThymeleaf;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,6 +40,13 @@ public class DocumentController {
 		return "redirect:/fileUpload";
 	}
 
+	
+	  @RequestMapping(value = "/upload-form", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+	    public String uploadDocumentForm(Model model) {
+	        model.addAttribute(new Document());
+	        populateForm(model);
+	        return "documents/upload-form";
+	    }
 	
 	
 }
