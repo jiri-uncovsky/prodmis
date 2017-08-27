@@ -39,7 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .exceptionHandling()
                 .accessDeniedPage("/403")
                 .and()
-            .csrf();
+            .csrf().disable();
 	} 
   
   @Autowired
