@@ -91,42 +91,42 @@
       <fieldset> 
        <div class="form-group" data-th-classappend="${#fields.hasErrors('name')}? 'has-error has-feedback'"> 
         <label for="name" class="col-md-3 control-label" data-th-text="#{label_organization_name}">name</label> 
-        <div class="col-md-3"> 
+        <div class="col-md-6"> 
          <input id="name" name="name" data-th-value="*{{name}}" type="text" class="form-control" placeholder="name" data-th-placeholder="#{label_organization_name}" data-toggle="tooltip" /> 
          <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}">Help message.</span> 
         </div> 
        </div> 
        <div class="form-group" data-th-classappend="${#fields.hasErrors('addressStreet')}? 'has-error has-feedback'"> 
         <label for="addressStreet" class="col-md-3 control-label" data-th-text="#{label_organization_addressstreet}">addressStreet</label> 
-        <div class="col-md-3"> 
+        <div class="col-md-6"> 
          <input id="addressStreet" name="addressStreet" data-th-value="*{{addressStreet}}" type="text" class="form-control" placeholder="addressStreet" data-th-placeholder="#{label_organization_addressstreet}" data-toggle="tooltip" /> 
          <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('addressStreet')}" data-th-errors="*{addressStreet}">Help message.</span> 
         </div> 
        </div> 
        <div class="form-group" data-th-classappend="${#fields.hasErrors('addressCity')}? 'has-error has-feedback'"> 
         <label for="addressCity" class="col-md-3 control-label" data-th-text="#{label_organization_addresscity}">addressCity</label> 
-        <div class="col-md-3"> 
+        <div class="col-md-6"> 
          <input id="addressCity" name="addressCity" data-th-value="*{{addressCity}}" type="text" class="form-control" placeholder="addressCity" data-th-placeholder="#{label_organization_addresscity}" data-toggle="tooltip" /> 
          <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('addressCity')}" data-th-errors="*{addressCity}">Help message.</span> 
         </div> 
        </div> 
        <div class="form-group" data-th-classappend="${#fields.hasErrors('addressCountry')}? 'has-error has-feedback'"> 
         <label for="addressCountry" class="col-md-3 control-label" data-th-text="#{label_organization_addresscountry}">addressCountry</label> 
-        <div class="col-md-3"> 
+        <div class="col-md-6"> 
          <input id="addressCountry" name="addressCountry" data-th-value="*{{addressCountry}}" type="text" class="form-control" placeholder="addressCountry" data-th-placeholder="#{label_organization_addresscountry}" data-toggle="tooltip" /> 
          <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('addressCountry')}" data-th-errors="*{addressCountry}">Help message.</span> 
         </div> 
        </div> 
        <div class="form-group" data-th-classappend="${#fields.hasErrors('addressPostcode')}? 'has-error has-feedback'"> 
         <label for="addressPostcode" class="col-md-3 control-label" data-th-text="#{label_organization_addresspostcode}">addressPostcode</label> 
-        <div class="col-md-3"> 
+        <div class="col-md-6"> 
          <input id="addressPostcode" name="addressPostcode" data-th-value="*{{addressPostcode}}" type="text" class="form-control" placeholder="addressPostcode" data-th-placeholder="#{label_organization_addresspostcode}" data-toggle="tooltip" /> 
          <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('addressPostcode')}" data-th-errors="*{addressPostcode}">Help message.</span> 
         </div> 
        </div> 
        <div class="form-group" data-th-classappend="${#fields.hasErrors('description')}? 'has-error has-feedback'"> 
         <label for="description" class="col-md-3 control-label" data-th-text="#{label_organization_description}">description</label> 
-        <div class="col-md-3"> 
+        <div class="col-md-6"> 
 <!--          <input id="description" name="description" data-th-value="*{{description}}" type="text" class="form-control" placeholder="description" data-th-placeholder="#{label_organization_description}" data-toggle="tooltip" />  -->
               <textarea id="description" name="description" data-th-value="*{{description}}" class="form-control" rows="7" cols = "70" placeholder="description" data-th-placeholder="#{label_organization_description}" data-toggle="tooltip"></textarea>
 <!--               <textarea id="description" name="description" data-th-value="*{{description}}" class="form-control" rows="7" cols = "70" placeholder="description" data-th-placeholder="#{label_organization_description}" data-toggle="tooltip"></textarea> -->
@@ -135,14 +135,14 @@
        </div> 
        <div class="form-group" data-th-classappend="${#fields.hasErrors('active')}? 'has-error has-feedback'"> 
 <!--         <label for="active" class="col-md-3 control-label" data-th-text="#{label_organization_active}">active</label>  -->
-        <div class="col-md-3"> 
+        <div class="col-md-6"> 
 <!--          <input type="checkbox" data-th-field="*{active}" class="form-control" data-th-title="#{label_requiredfield}" data-toggle="tooltip" />  -->
          <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('active')}" data-th-errors="*{active}">Help message.</span> 
         </div> 
        </div> 
        <div class="form-group" data-th-classappend="${#fields.hasErrors('createTime')}? 'has-error has-feedback'"> 
         <label for="createTime" class="col-md-3 control-label" data-th-text="#{label_organization_createtime}">createTime</label> 
-        <div class="col-md-3"> 
+        <div class="col-md-6"> 
 <!--          <input id="createTime" name="createTime" data-th-value="*{{createTime}}" type="text" class="form-control datetimepicker" placeholder="createTime" data-th-placeholder="#{label_organization_createtime}" data-th-attr="data-dateformat=${createTime_date_format}" data-toggle="tooltip" />  -->
          <input id="createTime" name="createTime" data-th-value="*{{createTime}}" type="text" class="form-control datetimepicker" placeholder="createTime" data-th-placeholder="#{label_organization_createtime}" data-th-attr="data-dateformat=${createTime_date_format}" data-toggle="tooltip" disabled="disabled"/>  
 <!--          <span name="createTime" data-th-text="*{{createTime}}" placeholder="createTime" data-th-placeholder="#{label_organization_createtime}"></span>  -->
