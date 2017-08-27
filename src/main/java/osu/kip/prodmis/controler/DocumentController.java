@@ -79,8 +79,8 @@ public class DocumentController {
 	    UserLogin createdBy = userloginService.findOne(id);
 		document.setCreatedBy(createdBy);  
 
-        Product product = productService.findAllByUserLogin(createdBy, null, null).getContent().get(0);
-	    document.setProduct(product);
+//        Product product = productService.findAllByUserLogin(createdBy, null, null).getContent().get(0);
+//	    document.setProduct(product);
 
 	    Document newDocument = documentService.save(document);
 	    redirectAttrs.addAttribute("id", newDocument.getId());

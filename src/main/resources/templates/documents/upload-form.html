@@ -69,19 +69,7 @@
       <fieldset> 
        <legend data-th-text="#{label_data_entity(#{label_document})}">Document data </legend> 
       
-<!--         <div class="input-group"> -->
-<!--                 <label class="input-group-btn"> -->
-<!--                     <span class="btn btn-primary"> -->
-<!--                         Browse… <input style="display: none;" multiple="" type="file"/> -->
-<!--                     </span> -->
-<!--                 </label> -->
-<!--                 <input class="form-control" readonly="" type="text"/> -->
-<!--             </div> -->
-<!--             <span class="help-block"> -->
-<!--                 Try selecting one or more files and watch the feedback -->
-<!--             </span> -->
-        
-            
+           
 <!--        <div class="form-group" data-th-classappend="${#fields.hasErrors('type')}? 'has-error has-feedback'">  -->
 <!--         <label for="type" class="col-md-3 control-label" data-th-text="#{label_document_type}">type</label>  -->
 <!--         <div class="col-md-3">  -->
@@ -90,6 +78,16 @@
 <!--         </div>  -->
 <!--        </div>  -->
      
+
+  <div class="form-group" data-th-classappend="${#fields.hasErrors('product')}? 'has-error has-feedback'"> 
+        <label for="product" class="col-md-3 control-label" data-th-text="#{label_document_product}">Product</label> 
+        <div class="col-md-6"> 
+         <!-- Select2 --> 
+         <select data-th-field="*{product}" class="dropdown-select-ajax"  style="width: 100%" data-placeholder="Select an option" data-allow-clear="true" data-id-field="id" data-text-fields="code,name" data-ajax--url="/products/forUserOrg" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json"> <option data-th-unless="*{product} == null" data-th-value="*{product.id}" data-th-text="|*{product.code} *{product.name}|" selected="selected">Product</option> </select> 
+         <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('product')}" data-th-errors="*{product}">Help message.</span> 
+        </div> 
+       </div> 
+
      
        <div class="form-group" data-th-classappend="${#fields.hasErrors('description')}? 'has-error has-feedback'"> 
         <label for="description" class="col-md-3 control-label" data-th-text="#{label_document_description}">description</label> 
