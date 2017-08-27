@@ -65,7 +65,7 @@
     <div class="container-fluid content"> 
      <h1 data-th-text="#{label_create_entity(#{label_document})}">Create Document</h1> 
      <!--START FORM--> 
-     <form class="form-horizontal" method="POST" data-th-object="${document}" data-th-action="@{/documents}"> 
+     <form class="form-horizontal" method="POST" enctype="multipart/form-data" data-th-object="${document}" data-th-action="@{/documents/upload}"> 
       <fieldset> 
        <legend data-th-text="#{label_data_entity(#{label_document})}">Document data </legend> 
       
@@ -81,11 +81,7 @@
 <!--                 Try selecting one or more files and watch the feedback -->
 <!--             </span> -->
         
-     
-     
-    
-             
-       
+            
 <!--        <div class="form-group" data-th-classappend="${#fields.hasErrors('type')}? 'has-error has-feedback'">  -->
 <!--         <label for="type" class="col-md-3 control-label" data-th-text="#{label_document_type}">type</label>  -->
 <!--         <div class="col-md-3">  -->
@@ -104,12 +100,12 @@
        </div> 
       
          <div class="form-group" data-th-classappend="${#fields.hasErrors('name')}? 'has-error has-feedback'"> 
-       	 <label for="type" class="col-md-3 control-label" data-th-text="#{label_document_type}">type</label>
+       	 <label for="type" class="col-md-3 control-label" data-th-text="#{label_document_name}">Name</label>
               <div class="col-md-6"> 
          <div class="input-group">
            <input class="form-control" readonly="readonly" type="text"/>
            <label class="input-group-btn">
-            <span class="btn btn-primary"> Browse <input style="display: none;"  type="file"/> </span>
+            <span class="btn btn-primary"> Browse <input style="display: none;"  type="file" name="file"/> </span>
            </label>
          </div>
 <!--                   <span class=""> Try selecting one or more files and watch the feedback </span> -->
@@ -117,8 +113,7 @@
 
          <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('type')}" data-th-errors="*{type}">Help message.</span> 
        </div> 
-      
-      
+            
             
        <!-- FORM BUTTONS --> 
        <div class="form-group"> 
