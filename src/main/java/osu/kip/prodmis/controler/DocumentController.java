@@ -17,10 +17,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import osu.kip.prodmis.domain.Document;
-import osu.kip.prodmis.domain.Product;
+import osu.kip.prodmis.domain.DocumentRevision;
 import osu.kip.prodmis.domain.UserLogin;
 import osu.kip.prodmis.service.api.DocumentService;
-import osu.kip.prodmis.service.api.ProductService;
 import osu.kip.prodmis.service.api.StorageService;
 import osu.kip.prodmis.service.api.UserLoginService;
 
@@ -35,14 +34,14 @@ public class DocumentController {
 	@Autowired
 	private UserLoginService userloginService;
 
-	@Autowired
-	private ProductService productService;
-	
+//	@Autowired
+//	private ProductService productService;
+
 	
 	@RequestMapping(value = "/fileUploadPOST", method = RequestMethod.POST, produces = MediaType.TEXT_HTML_VALUE)
 	public String handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
 
-		storageService.store(file);
+		storageService.store(file,"");
 		redirectAttributes.addFlashAttribute("message",
 				"You successfully uploaded " + file.getOriginalFilename() + "!");
 
@@ -73,19 +72,28 @@ public class DocumentController {
 	        return "documents/upload-form";
 	    }
 	     
-        document.setName(file.getOriginalFilename());
-	    document.setType("generic document");
-	      
 	    UserLogin createdBy = userloginService.findOne(id);
 		document.setCreatedBy(createdBy);  
-
-//        Product product = productService.findAllByUserLogin(createdBy, null, null).getContent().get(0);
+	    document.setName(file.getOriginalFilename());
+	    document.setType("generic document");
+//      Product product = productService.findAllByUserLogin(createdBy, null, null).getContent().get(0);
 //	    document.setProduct(product);
-
 	    Document newDocument = documentService.save(document);
+	    	    
+	    DocumentRevision documentRevision = new DocumentRevision();
+	    String fprefix = "d"+ newDocument.getId().toString() + "-v1-";
+	    documentRevision.setFileName(fprefix + file.getOriginalFilename());
+	    documentRevision.setRevisionVersion("1");
+	    documentRevision.setFilePath("");
+	    documentRevision.setDocument(newDocument);
+	    documentRevision.setComment("initial version");
+	    documentRevision.setCreatedBy(createdBy);
+	    documentRevision.setState("new");
+	    documentRevisionService.save(documentRevision);
+    
+	    storageService.store(file,fprefix);
+	    
 	    redirectAttrs.addAttribute("id", newDocument.getId());
 	    return "redirect:/documents/{id}";
    } 
-	  
-	
 }

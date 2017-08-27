@@ -25,12 +25,12 @@ public class FileSystemStorageService implements StorageService {
 
     
     public FileSystemStorageService() {
-        this.rootLocation = Paths.get("upload-dir");
+        this.rootLocation = Paths.get("C:\\ProDMIS_FileRepository\\root-documents");
     }
-
+    
     @Override
-    public void store(MultipartFile file) {
-        String filename = StringUtils.cleanPath(file.getOriginalFilename());
+    public void store(MultipartFile file, String fprefix) {
+        String filename = fprefix + StringUtils.cleanPath(file.getOriginalFilename());
         try {
             if (file.isEmpty()) {
                 throw new StorageException("Failed to store empty file " + filename);
