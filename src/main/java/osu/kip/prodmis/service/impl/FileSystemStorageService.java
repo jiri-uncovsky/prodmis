@@ -1,5 +1,6 @@
 package osu.kip.prodmis.service.impl;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
@@ -91,6 +92,13 @@ public class FileSystemStorageService implements StorageService {
         FileSystemUtils.deleteRecursively(rootLocation.toFile());
     }
 
+    @Override
+    public void delete(String fileName) {
+        File file = rootLocation.resolve(fileName).toFile();
+        if (file.exists()) file.delete();
+    }
+    
+    
     @Override
     public void init() {
         try {
