@@ -87,33 +87,33 @@
     <div class="container-fluid content"> 
      <h1 data-th-text="#{label_create_entity(#{label_product})}">Create Product</h1> 
      <!--START FORM--> 
-     <form class="form-horizontal" method="POST" data-th-object="${product}" data-th-action="@{/products}"> 
+     <form class="form-horizontal" method="POST" data-th-object="${product}" data-th-action="@{/products/newforuser}"> 
       <fieldset> 
        <legend data-th-text="#{label_data_entity(#{label_product})}">Product data </legend> 
        <div class="form-group" data-th-classappend="${#fields.hasErrors('code')}? 'has-error has-feedback'"> 
         <label for="code" class="col-md-3 control-label" data-th-text="#{label_product_code}">code</label> 
-        <div class="col-md-3"> 
+        <div class="col-md-6"> 
          <input id="code" name="code" data-th-value="*{{code}}" type="text" class="form-control" placeholder="code" data-th-placeholder="#{label_product_code}" data-toggle="tooltip" /> 
          <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('code')}" data-th-errors="*{code}">Help message.</span> 
         </div> 
        </div> 
        <div class="form-group" data-th-classappend="${#fields.hasErrors('name')}? 'has-error has-feedback'"> 
         <label for="name" class="col-md-3 control-label" data-th-text="#{label_product_name}">name</label> 
-        <div class="col-md-3"> 
+        <div class="col-md-6"> 
          <input id="name" name="name" data-th-value="*{{name}}" type="text" class="form-control" placeholder="name" data-th-placeholder="#{label_product_name}" data-toggle="tooltip" /> 
          <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}">Help message.</span> 
         </div> 
        </div> 
        <div class="form-group" data-th-classappend="${#fields.hasErrors('description')}? 'has-error has-feedback'"> 
         <label for="description" class="col-md-3 control-label" data-th-text="#{label_product_description}">description</label> 
-        <div class="col-md-3"> 
-         <input id="description" name="description" data-th-value="*{{description}}" type="text" class="form-control" placeholder="description" data-th-placeholder="#{label_product_description}" data-toggle="tooltip" /> 
+        <div class="col-md-6"> 
+         <textarea id="description" name="description" data-th-value="*{{description}}" class="form-control" rows="7" cols = "70" placeholder="description" data-th-placeholder="#{label_product_description}" data-toggle="tooltip" ></textarea> 
          <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('description')}" data-th-errors="*{description}">Help message.</span> 
         </div> 
        </div> 
        <div class="form-group" data-th-classappend="${#fields.hasErrors('archived')}? 'has-error has-feedback'"> 
         <label for="archived" class="col-md-3 control-label" data-th-text="#{label_product_archived}">archived</label> 
-        <div class="col-md-3"> 
+        <div class="col-md-6"> 
          <input type="checkbox" data-th-field="*{archived}" class="form-control" data-th-title="#{label_requiredfield}" data-toggle="tooltip" /> 
          <span id="name-help" class="help-block alert" data-th-if="${#fields.hasErrors('archived')}" data-th-errors="*{archived}">Help message.</span> 
         </div> 
