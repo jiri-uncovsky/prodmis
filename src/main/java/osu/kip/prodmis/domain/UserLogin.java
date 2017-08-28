@@ -2,7 +2,6 @@ package osu.kip.prodmis.domain;
 import java.util.Calendar;
 
 import javax.persistence.Column;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -65,4 +64,11 @@ public class UserLogin {
 	@JoinColumn(name ="organization")
 	private Organization organization;
 	
+    /**
+     * 
+     */
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "created_by")
+//    private Set<DocumentRevision> documentRevisions = new HashSet<DocumentRevision>();
+
+    
 }

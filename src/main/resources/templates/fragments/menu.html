@@ -34,8 +34,9 @@
         </ul> </li> 
        <li xmlns:th="http://www.thymeleaf.org" th:if="${session.admin}" class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_document})}">Document<span class="caret"></span></a> 
         <ul class="dropdown-menu"> 
-         <li><a href="/documents/create-form" data-th-text="#{label_create_entity(#{label_document})}">Create Document</a></li> 
-         <li><a href="/documents" data-th-text="#{label_list_entity(#{label_document_plural})}">List Document</a></li> 
+         <li><a href="/documents/upload-form">Upload Document (Beta)</a></li> 
+         <li><a href="/documents/create-form" data-th-text="#{label_create_entity(#{label_document})}">Create Document</a></li>
+         <li><a href="/documents" data-th-text="#{label_list_entity(#{label_document_plural})}">List Document</a></li>
         </ul> </li> 
        <li xmlns:th="http://www.thymeleaf.org" th:if="${session.username}" class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_documentrevision})}">DocumentRevision<span class="caret"></span></a> 
         <ul class="dropdown-menu"> 

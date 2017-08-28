@@ -4,6 +4,7 @@
 package osu.kip.prodmis.domain;
 
 import java.util.Set;
+import osu.kip.prodmis.domain.Comment;
 import osu.kip.prodmis.domain.Document;
 import osu.kip.prodmis.domain.Organization;
 import osu.kip.prodmis.domain.Product;
@@ -65,6 +66,14 @@ privileged aspect Product_Roo_JavaBean {
     
     public void Product.setDocuments(Set<Document> documents) {
         this.documents = documents;
+    }
+    
+    public Set<Comment> Product.getComments() {
+        return this.comments;
+    }
+    
+    public void Product.setComments(Set<Comment> comments) {
+        this.comments = comments;
     }
     
 }

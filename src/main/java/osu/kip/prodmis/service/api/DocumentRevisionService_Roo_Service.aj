@@ -28,8 +28,8 @@ privileged aspect DocumentRevisionService_Roo_Service {
     public abstract DocumentRevision DocumentRevisionService.findOne(Long id);    
     public abstract long DocumentRevisionService.count();    
     public abstract Page<DocumentRevision> DocumentRevisionService.findAll(GlobalSearch globalSearch, Pageable pageable);    
-    public abstract Page<DocumentRevision> DocumentRevisionService.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable);    
     public abstract Page<DocumentRevision> DocumentRevisionService.findAllByDocument(Document documentField, GlobalSearch globalSearch, Pageable pageable);    
-    public abstract Long DocumentRevisionService.countByCreatedById(Long id);    
+    public abstract Page<DocumentRevision> DocumentRevisionService.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable);    
     public abstract Long DocumentRevisionService.countByDocumentId(Long id);    
+    public abstract Long DocumentRevisionService.countByCreatedById(Long id);    
 }

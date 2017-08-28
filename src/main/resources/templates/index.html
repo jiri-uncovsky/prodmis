@@ -30,14 +30,15 @@
    <!-- Header --> 
    <header role="banner"> 
     <!--Banner --> 
-    <div class="bg-header"> 
-     <div class="jumbotron bg-banner"> 
-      <div class="container"> 
-       <h1 class="project-name">ProDMIS</h1> 
-       <h2 class="project-tagline" data-th-text="#{info_homepage_project}">Hello, this is your home page.</h2> 
-      </div> 
-     </div> 
-    </div> 
+<!--     <div class="bg-header">  -->
+<!--      <div class="jumbotron bg-banner">  -->
+<!--       <div class="container">  -->
+<!--        <h1 class="project-name">ProDMIS</h1>  -->
+<!--        <h2 class="project-tagline" data-th-text="#{info_homepage_project}">Hello, this is your home page.</h2>  -->
+<!--       </div>  -->
+<!--      </div>  -->
+<!--     </div>  -->
+  
     <!-- Main nav --> 
     <nav class="navbar navbar-inverse navbar-fixed-top"> 
      <div class="container"> 
@@ -45,7 +46,7 @@
        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Menu</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> 
        <!-- Brand logo --> 
        <div class="organization-logo navbar-brand"> 
-        <a title="ProDMIS" href="/"> <img alt="ProDMIS" data-th-src="@{/public/img/logo.png}" src="../static/public/img/logo.png" /> </a> 
+        <a title="ProDMIS" href="/"> <img alt="ProDMIS" data-th-src="@{/public/img/logo.png}" src="../static/public/img/logo.png"/> </a> 
        </div> 
        <!-- Name application --> 
        <div class="application-name navbar-brand hidden-xs">
@@ -70,7 +71,7 @@
         <li><a href="#"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><span class="hidden-sm"> Help</span></a></li> 
        </ul> 
        <ul class="nav navbar-nav navbar-right upper-nav session"> 
-        <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><span class="hidden-sm"> User ZZZ</span></a></li> 
+        <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><span class="hidden-sm"> User</span></a></li> 
        </ul> 
       </div> 
      </div> 
@@ -82,8 +83,8 @@
      <div class="box-center"> 
       <!-- Project info --> 
       <div class="row"> 
-       <div class="hidden-xs col-sm-4 col-sm-offset-1"> 
-        <img alt="ProDMIS" data-th-src="@{/public/img/springroo-logo.png}" src="../static/public/img/springroo-logo.png" /> 
+       <div class="hidden-xs col-sm-4 " align="center" > 
+        <img alt="ProDMIS" data-th-src="@{/public/img/prodmis.png}" src="../static/public/img/prodmis.png" /> 
        </div> 
        <div class="col-sm-6"> 
         <h2 data-th-text="#{info_homepage_header}">With Roo you can easily build full Java applications in minutes.</h2> 
@@ -96,71 +97,71 @@
      <!-- Features --> 
      <div class="row blocks"> 
       <!-- Doc --> 
-      <div class="col-sm-6 col-md-3"> 
-       <div class="block-item bgm-teal"> 
-        <div class="clearfix"> 
-         <div class="doc"> 
-          <i class="fa fa-book"></i> 
-         </div> 
-         <div class="text"> 
-          <h2><a href="http://docs.spring.io/spring-roo/docs/current/reference/html/" data-th-title="#{label_spring_documentation}" title="Spring Roo reference documentation" target="_blank" data-th-text="#{label_documentation}">Doc</a></h2> 
-          <small data-th-text="#{info_spring_documentation}">If you are looking for Reference Documentation you can get it here.</small> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <!-- Project page --> 
-      <div class="col-sm-6 col-md-3"> 
-       <div class="block-item bgm-red"> 
-        <div class="clearfix"> 
-         <div class="doc"> 
-          <i class="fa fa-envira"></i> 
-         </div> 
-         <div class="text"> 
-          <h2><a href="http://projects.spring.io/spring-roo/" data-th-title="#{label_spring_site}" title="Spring Roo project site" target="_blank" data-th-text="#{label_projectpage}">Project Page</a></h2> 
-          <small data-th-text="#{info_spring_site}">All the info about Spring Roo development.</small> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <!-- Support --> 
-      <div class="col-sm-6 col-md-3"> 
-       <div class="block-item bgm-amber"> 
-        <div class="clearfix"> 
-         <div class="doc"> 
-          <i class="fa fa-stack-overflow"></i> 
-         </div> 
-         <div class="text"> 
-          <h2><a href="http://stackoverflow.com/questions/tagged/spring-roo" data-th-title="#{label_spring_support}" title="Spring Roo Stackoverflow support" target="_blank" data-th-text="#{label_support}">Support</a></h2> 
-          <small data-th-text="#{label_spring_support}">If you have any question about the project, you can check it.</small> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
-      <div class="col-sm-6 col-md-3"> 
-       <div class="block-item bgm-bluegray"> 
-        <div class="clearfix"> 
-         <div class="doc"> 
-          <i class="fa fa-code"></i> 
-         </div> 
-         <div class="text"> 
-          <h2><a href="https://github.com/spring-projects/spring-roo/" data-th-title="#{label_spring_code}" title="Spring Roo source code" target="_blank" data-th-text="#{label_code}">Code</a></h2> 
-          <small data-th-text="#{label_spring_sourcecode}">Known, modify and redistribute the source code.</small> 
-         </div> 
-        </div> 
-       </div> 
-      </div> 
+<!--       <div class="col-sm-6 col-md-3">  -->
+<!--        <div class="block-item bgm-teal">  -->
+<!--         <div class="clearfix">  -->
+<!--          <div class="doc">  -->
+<!--           <i class="fa fa-book"></i>  -->
+<!--          </div>  -->
+<!--          <div class="text">  -->
+<!--           <h2><a href="http://docs.spring.io/spring-roo/docs/current/reference/html/" data-th-title="#{label_spring_documentation}" title="Spring Roo reference documentation" target="_blank" data-th-text="#{label_documentation}">Doc</a></h2>  -->
+<!--           <small data-th-text="#{info_spring_documentation}">If you are looking for Reference Documentation you can get it here.</small>  -->
+<!--          </div>  -->
+<!--         </div>  -->
+<!--        </div>  -->
+<!--       </div>  -->
+<!--       Project page  -->
+<!--       <div class="col-sm-6 col-md-3">  -->
+<!--        <div class="block-item bgm-red">  -->
+<!--         <div class="clearfix">  -->
+<!--          <div class="doc">  -->
+<!--           <i class="fa fa-envira"></i>  -->
+<!--          </div>  -->
+<!--          <div class="text">  -->
+<!--           <h2><a href="http://projects.spring.io/spring-roo/" data-th-title="#{label_spring_site}" title="Spring Roo project site" target="_blank" data-th-text="#{label_projectpage}">Project Page</a></h2>  -->
+<!--           <small data-th-text="#{info_spring_site}">All the info about Spring Roo development.</small>  -->
+<!--          </div>  -->
+<!--         </div>  -->
+<!--        </div>  -->
+<!--       </div>  -->
+<!--       Support  -->
+<!--       <div class="col-sm-6 col-md-3">  -->
+<!--        <div class="block-item bgm-amber">  -->
+<!--         <div class="clearfix">  -->
+<!--          <div class="doc">  -->
+<!--           <i class="fa fa-stack-overflow"></i>  -->
+<!--          </div>  -->
+<!--          <div class="text">  -->
+<!--           <h2><a href="http://stackoverflow.com/questions/tagged/spring-roo" data-th-title="#{label_spring_support}" title="Spring Roo Stackoverflow support" target="_blank" data-th-text="#{label_support}">Support</a></h2>  -->
+<!--           <small data-th-text="#{label_spring_support}">If you have any question about the project, you can check it.</small>  -->
+<!--          </div>  -->
+<!--         </div>  -->
+<!--        </div>  -->
+<!--       </div>  -->
+<!--       <div class="col-sm-6 col-md-3">  -->
+<!--        <div class="block-item bgm-bluegray">  -->
+<!--         <div class="clearfix">  -->
+<!--          <div class="doc">  -->
+<!--           <i class="fa fa-code"></i>  -->
+<!--          </div>  -->
+<!--          <div class="text">  -->
+<!--           <h2><a href="https://github.com/spring-projects/spring-roo/" data-th-title="#{label_spring_code}" title="Spring Roo source code" target="_blank" data-th-text="#{label_code}">Code</a></h2>  -->
+<!--           <small data-th-text="#{label_spring_sourcecode}">Known, modify and redistribute the source code.</small>  -->
+<!--          </div>  -->
+<!--         </div>  -->
+<!--        </div>  -->
+<!--       </div>  -->
      </div>
      <!-- /features --> 
      <!-- Social --> 
      <div class="row"> 
-      <div class="col-md-12"> 
-       <ul class="pull-right list-inline social-links"> 
-        <li><small data-th-text="#{info_twitter}">As always, you can find us also on </small></li> 
-        <li> <a href="http://twitter.com/springroo" class="icon-twitter" target="_blank"> <i class="fa fa-twitter"></i> </a> </li> 
-        <li> <a href="https://www.linkedin.com/groups/3293132" class="icon-linkedin" target="_blank"> <i class="fa fa-linkedin"></i> </a> </li> 
-       </ul> 
-      </div> 
+<!--       <div class="col-md-12">  -->
+<!--        <ul class="pull-right list-inline social-links">  -->
+<!--         <li><small data-th-text="#{info_twitter}">As always, you can find us also on </small></li>  -->
+<!--         <li> <a href="http://twitter.com/springroo" class="icon-twitter" target="_blank"> <i class="fa fa-twitter"></i> </a> </li>  -->
+<!--         <li> <a href="https://www.linkedin.com/groups/3293132" class="icon-linkedin" target="_blank"> <i class="fa fa-linkedin"></i> </a> </li>  -->
+<!--        </ul>  -->
+<!--       </div>  -->
      </div> 
     </div> 
     <!--/content--> 

@@ -36,21 +36,10 @@ privileged aspect DocumentServiceImpl_Roo_Service_Impl {
     public Document DocumentServiceImpl.save(Document entity) {
         return documentRepository.save(entity);
     }
-    
-    @Transactional(readOnly = false)
-    public void DocumentServiceImpl.delete(Long id) {
-         documentRepository.delete(id);
-    }
-    
+      
     @Transactional(readOnly = false)
     public List<Document> DocumentServiceImpl.save(Iterable<Document> entities) {
         return documentRepository.save(entities);
-    }
-    
-    @Transactional(readOnly = false)
-    public void DocumentServiceImpl.delete(Iterable<Long> ids) {
-        List<Document> toDelete = documentRepository.findAll(ids);
-        documentRepository.deleteInBatch(toDelete);
     }
     
     public List<Document> DocumentServiceImpl.findAll() {

@@ -20,6 +20,6 @@ privileged aspect DocumentRepository_Roo_Jpa_Repository {
     
     declare @type: DocumentRepository: @Transactional(readOnly = true);
     
-    public abstract Long DocumentRepository.countByProductId(Long id);    
     public abstract Long DocumentRepository.countByCreatedById(Long id);    
+    public abstract Long DocumentRepository.countByProductId(Long id);    
 }

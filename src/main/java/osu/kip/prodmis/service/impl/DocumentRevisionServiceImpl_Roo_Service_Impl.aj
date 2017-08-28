@@ -73,20 +73,20 @@ privileged aspect DocumentRevisionServiceImpl_Roo_Service_Impl {
         return documentRevisionRepository.findAll(globalSearch, pageable);
     }
     
-    public Long DocumentRevisionServiceImpl.countByCreatedById(Long id) {
-        return documentRevisionRepository.countByCreatedById(id);
-    }
-    
     public Long DocumentRevisionServiceImpl.countByDocumentId(Long id) {
         return documentRevisionRepository.countByDocumentId(id);
     }
     
-    public Page<DocumentRevision> DocumentRevisionServiceImpl.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable) {
-        return documentRevisionRepository.findAllByUserLogin(userLoginField, globalSearch, pageable);
+    public Long DocumentRevisionServiceImpl.countByCreatedById(Long id) {
+        return documentRevisionRepository.countByCreatedById(id);
     }
     
     public Page<DocumentRevision> DocumentRevisionServiceImpl.findAllByDocument(Document documentField, GlobalSearch globalSearch, Pageable pageable) {
         return documentRevisionRepository.findAllByDocument(documentField, globalSearch, pageable);
+    }
+    
+    public Page<DocumentRevision> DocumentRevisionServiceImpl.findAllByUserLogin(UserLogin userLoginField, GlobalSearch globalSearch, Pageable pageable) {
+        return documentRevisionRepository.findAllByUserLogin(userLoginField, globalSearch, pageable);
     }
     
 }

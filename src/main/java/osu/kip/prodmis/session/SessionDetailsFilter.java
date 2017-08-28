@@ -48,6 +48,9 @@ public class SessionDetailsFilter extends OncePerRequestFilter {
       session.setAttribute("username", userLogin.getName() + " " + userLogin.getSurname());
     }
     session.setAttribute("id", userLogin.getId());
+    
+    session.setAttribute("user_org_id", userLogin.getOrganization().getId());
+    
     for(GrantedAuthority authority : user.getAuthorities()) {
       if("admin".equalsIgnoreCase(authority.getAuthority())) {
         session.setAttribute("admin", "yes");
