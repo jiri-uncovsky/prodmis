@@ -129,7 +129,7 @@
       <hr> 
        <ul class="nav nav-tabs"> 
         <li class="active"><a data-toggle="tab" href="#detail-Product">Product</a></li> 
-        <li><a data-toggle="tab" href="#detail-UserLogin">UserLogin</a></li> 
+        <li><a data-toggle="tab" href="#detail-UserLogin">User</a></li> 
        </ul> 
        <div class="tab-content"> 
         <div id="detail-Product" class="tab-pane active"> 
@@ -144,8 +144,8 @@
              <th data-th-text="#{label_product_code}">code</th> 
              <th data-th-text="#{label_product_name}">name</th> 
              <th data-th-text="#{label_product_description}">description</th> 
-             <th data-th-text="#{label_product_archived}">archived</th> 
-             <th data-th-text="#{label_product_organization}">organization</th> 
+<!--              <th data-th-text="#{label_product_archived}">archived</th>  -->
+<!--              <th data-th-text="#{label_product_organization}">organization</th>  -->
              <th data-th-text="#{label_tools}">Tools</th> 
             </tr> 
            </thead> 
@@ -154,8 +154,8 @@
              <td>code</td> 
              <td>name</td> 
              <td>description</td> 
-             <td>archived</td> 
-             <td>organization</td> 
+<!--              <td>archived</td>  -->
+<!--              <td>organization</td>  -->
              <td data-th-text="#{label_tools}">Tools</td> 
             </tr> 
            </tbody> 
@@ -173,7 +173,7 @@
            <thead> 
             <tr> 
              <th data-th-text="#{label_userlogin_username}">username</th> 
-             <th data-th-text="#{label_userlogin_password}">password</th> 
+<!--              <th data-th-text="#{label_userlogin_password}">password</th>  -->
              <th data-th-text="#{label_userlogin_name}">name</th> 
              <th data-th-text="#{label_userlogin_surname}">surname</th> 
              <th data-th-text="#{label_userlogin_email}">email</th> 
@@ -183,7 +183,7 @@
            <tbody data-th-remove="all"> 
             <tr> 
              <td>username</td> 
-             <td>password</td> 
+<!--              <td>password</td>  -->
              <td>name</td> 
              <td>surname</td> 
              <td>email</td> 
@@ -240,7 +240,7 @@
    <script type="text/javascript" charset="utf8" src="../../static/public/js/datatables-defaults.js" data-th-src="@{/public/js/datatables-defaults.js}"></script> 
    <script type="text/javascript" charset="utf8" src="../../static/public/js/datatables-defaults-en.js" data-th-src="@{/public/js/datatables-defaults-en.js}"></script> 
    <!-- Datatables page configs --> 
-   <script type="text/javascript" data-th-inline="javascript"> $(document).ready( function () { var ProductBaseUrl = [[@{/organizations/{id}/products/(id=${organization.id})}]] + ''; var ProductTable = jQuery('#ProductTable').DataTable({ 'ajax': { 'url': ProductBaseUrl }, 'buttons' : [ { 'extend' : 'colvis', 'className' : 'btn-accion' }, { 'extend' : 'pageLength', 'className' : 'btn-accion' } ], 'columns': [ { 'data': 'code' }, { 'data': 'name' }, { 'data': 'description' }, { 'data': 'archived' }, { 'data': 'organization' }, { 'data': 'id', 'orderable': false, 'searchable': false, 'render': function ( data, type, full, meta ) { return '<a role="button" class="btn-accion show" href="/products/' + data + '" data-th-text="#{label_show}">Show</a>' } } ] }); var UserLoginBaseUrl = [[@{/organizations/{id}/userlogins/(id=${organization.id})}]] + ''; var UserLoginTable = jQuery('#UserLoginTable').DataTable({ 'ajax': { 'url': UserLoginBaseUrl }, 'buttons' : [ { 'extend' : 'colvis', 'className' : 'btn-accion' }, { 'extend' : 'pageLength', 'className' : 'btn-accion' } ], 'columns': [ { 'data': 'username' }, { 'data': 'password' }, { 'data': 'name' }, { 'data': 'surname' }, { 'data': 'email' }, { 'data': 'id', 'orderable': false, 'searchable': false, 'render': function ( data, type, full, meta ) { return '<a role="button" class="btn-accion show" href="/userlogins/' + data + '" data-th-text="#{label_show}">Show</a>' } } ] }); }); </script> 
+   <script type="text/javascript" data-th-inline="javascript"> $(document).ready( function () { var ProductBaseUrl = [[@{/organizations/{id}/products/(id=${organization.id})}]] + ''; var ProductTable = jQuery('#ProductTable').DataTable({ 'ajax': { 'url': ProductBaseUrl }, 'buttons' : [ { 'extend' : 'colvis', 'className' : 'btn-accion' }, { 'extend' : 'pageLength', 'className' : 'btn-accion' } ], 'columns': [ { 'data': 'code' }, { 'data': 'name' }, { 'data': 'description' }, { 'data': 'id', 'orderable': false, 'searchable': false, 'render': function ( data, type, full, meta ) { return '<a role="button" class="btn-accion show" href="/products/' + data + '" data-th-text="#{label_show}">Show</a>' } } ] }); var UserLoginBaseUrl = [[@{/organizations/{id}/userlogins/(id=${organization.id})}]] + ''; var UserLoginTable = jQuery('#UserLoginTable').DataTable({ 'ajax': { 'url': UserLoginBaseUrl }, 'buttons' : [ { 'extend' : 'colvis', 'className' : 'btn-accion' }, { 'extend' : 'pageLength', 'className' : 'btn-accion' } ], 'columns': [ { 'data': 'username' }, { 'data': 'name' }, { 'data': 'surname' }, { 'data': 'email' }, { 'data': 'id', 'orderable': false, 'searchable': false, 'render': function ( data, type, full, meta ) { return '<a role="button" class="btn-accion show" href="/userlogins/' + data + '" data-th-text="#{label_show}">Show</a>' } } ] }); }); </script> 
   </div> 
   <!-- Application --> 
   <script type="text/javascript" src="../../static/public/js/main.js" data-th-remove="all"></script> 
