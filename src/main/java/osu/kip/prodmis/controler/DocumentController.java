@@ -129,7 +129,7 @@ public class DocumentController {
 		
 		Resource file = storageService.loadAsResourceFromRoot(fileName);
 		return ResponseEntity.ok()
-				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
+				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + document.getName() + "\"")
 				.body(file);
 			
 	}
