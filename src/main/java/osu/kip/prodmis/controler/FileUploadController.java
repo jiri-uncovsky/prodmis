@@ -49,15 +49,15 @@ public class FileUploadController {
 	}
 
 	// @GetMapping("/files/{filename:.+}")
-	@RequestMapping(value = "/files/{filename:.+}", method = RequestMethod.GET)
-	@ResponseBody
-	public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
+		@RequestMapping(value = "/files/{filename:.+}", method = RequestMethod.GET)
+		@ResponseBody
+		public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
 
-		Resource file = storageService.loadAsResource(filename);
-		return ResponseEntity.ok()
-				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
-				.body(file);
-	}
+			Resource file = storageService.loadAsResource(filename);
+			return ResponseEntity.ok()
+					.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
+					.body(file);
+		}
 
 	// @PostMapping("/")
 	@RequestMapping(value = "/fileUploadPOST", method = RequestMethod.POST)

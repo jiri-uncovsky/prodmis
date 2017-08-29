@@ -87,6 +87,9 @@ public class FileSystemStorageService implements StorageService {
         }
     }
 
+      
+    
+    
     @Override
     public void deleteAll() {
         FileSystemUtils.deleteRecursively(rootLocation.toFile());
@@ -108,4 +111,9 @@ public class FileSystemStorageService implements StorageService {
             throw new StorageException("Could not initialize storage", e);
         }
     }
+
+	@Override
+	public Resource loadAsResourceFromRoot(String fileName){
+		return loadAsResource(rootLocation.resolve(fileName).toString());
+	}
 }
