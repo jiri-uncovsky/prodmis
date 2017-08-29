@@ -11,12 +11,16 @@ import org.springframework.roo.addon.web.mvc.thymeleaf.annotations.RooThymeleaf;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import osu.kip.prodmis.datatables.DatatablesData;
+import osu.kip.prodmis.domain.Document;
 import osu.kip.prodmis.domain.Organization;
 import osu.kip.prodmis.domain.Product;
 import osu.kip.prodmis.domain.UserLogin;
@@ -55,7 +59,7 @@ public class ProductController {
         return "products/list-MP";
     }
 	
-	@RequestMapping(value="/listmps", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/list-MP", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public Page<Product> listPerUsr(GlobalSearch search, Pageable pageable, @ModelAttribute("user_org_id") Long orgId) {
 		Page<Product> products = productService.findAllByOrganization(organizationService.findOne(orgId), search, pageable);
@@ -80,5 +84,8 @@ public class ProductController {
           redirectAttrs.addAttribute("id", newProduct.getId());
         return "redirect:/products/{id}";
     }
+	
+	
+	
 
 }
