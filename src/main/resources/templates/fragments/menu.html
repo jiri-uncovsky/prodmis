@@ -30,8 +30,9 @@
        <li xmlns:th="http://www.thymeleaf.org" th:if="${session.username}" class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_product})}">Product<span class="caret"></span></a> 
         <ul class="dropdown-menu"> 
          <li><a href="/products/create-form" data-th-text="#{label_create_entity(#{label_product})}">Create Product</a></li> 
-         <li><a href="/products" data-th-text="#{label_list_entity(#{label_product_plural})}">List Product</a></li> 
          <li><a href="/products/list-MP" data-th-text="#{label_list_entity(#{label_product_plural})}">List MyProduct</a></li>
+         <li><a href="/products" th:if="${session.admin}" data-th-text="#{label_list_entity(#{label_product_plural_all})}" style="color: orange;">List Product All</a></li> 
+        
         </ul> </li> 
        
         <li xmlns:th="http://www.thymeleaf.org" th:if="${session.username}" class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_document})}">Document<span class="caret"></span></a> 
