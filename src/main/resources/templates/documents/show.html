@@ -109,42 +109,42 @@
        createdByValue
       </dd> 
       <hr> 
-       <ul class="nav nav-tabs"> 
-        <li class="active"><a data-toggle="tab" href="#detail-DocumentRevision">DocumentRevision</a></li> 
-       </ul> 
-       <div class="tab-content"> 
-        <div id="detail-DocumentRevision" class="tab-pane active"> 
-         <!--START TABLE--> 
-         <div class="table-responsive"> 
-          <table id="DocumentRevisionTable" class="table table-striped table-hover table-bordered" data-row-id="id" data-select="single" data-order="[[ 0, &quot;asc&quot; ]]"> 
-           <caption data-th-text="#{label_list_of_entity(#{label_documentrevision_plural})}">
-            List DocumentRevision
-           </caption> 
-           <thead> 
-            <tr> 
-             <th data-th-text="#{label_documentrevision_revisionversion}">revisionVersion</th> 
-             <th data-th-text="#{label_documentrevision_comment}">comment</th> 
-             <th data-th-text="#{label_documentrevision_state}">state</th> 
-             <th data-th-text="#{label_documentrevision_filename}">fileName</th> 
-             <th data-th-text="#{label_documentrevision_filepath}">filePath</th> 
-             <th data-th-text="#{label_tools}">Tools</th> 
-            </tr> 
-           </thead> 
-           <tbody data-th-remove="all"> 
-            <tr> 
-             <td>revisionVersion</td> 
-             <td>comment</td> 
-             <td>state</td> 
-             <td>fileName</td> 
-             <td>filePath</td> 
-             <td data-th-text="#{label_tools}">Tools</td> 
-            </tr> 
-           </tbody> 
-          </table> 
-         </div> 
-         <!--END TABLE--> 
-        </div> 
-       </div> 
+<!--        <ul class="nav nav-tabs" th:if="${session.admin}">  -->
+<!--         <li class="active"><a data-toggle="tab" href="#detail-DocumentRevision">DocumentRevision</a></li>  -->
+<!--        </ul>  -->
+<!--        <div class="tab-content" th:if="${session.username}">  -->
+<!--         <div id="detail-DocumentRevision" class="tab-pane active">  -->
+<!--          START TABLE  -->
+<!--          <div class="table-responsive">  -->
+<!--           <table id="DocumentRevisionTable" class="table table-striped table-hover table-bordered" data-row-id="id" data-select="single" data-order="[[ 0, &quot;asc&quot; ]]">  -->
+<!--            <caption data-th-text="#{label_list_of_entity(#{label_documentrevision_plural})}"> -->
+<!--             List DocumentRevision -->
+<!--            </caption>  -->
+<!--            <thead>  -->
+<!--             <tr>  -->
+<!--              <th data-th-text="#{label_documentrevision_revisionversion}">revisionVersion</th>  -->
+<!--              <th data-th-text="#{label_documentrevision_comment}">comment</th>  -->
+<!--              <th data-th-text="#{label_documentrevision_state}">state</th>  -->
+<!--              <th data-th-text="#{label_documentrevision_filename}">fileName</th>  -->
+<!--              <th data-th-text="#{label_documentrevision_filepath}">filePath</th>  -->
+<!--              <th data-th-text="#{label_tools}">Tools</th>  -->
+<!--             </tr>  -->
+<!--            </thead>  -->
+<!--            <tbody data-th-remove="all">  -->
+<!--             <tr>  -->
+<!--              <td>revisionVersion</td>  -->
+<!--              <td>comment</td>  -->
+<!--              <td>state</td>  -->
+<!--              <td>fileName</td>  -->
+<!--              <td>filePath</td>  -->
+<!--              <td data-th-text="#{label_tools}">Tools</td>  -->
+<!--             </tr>  -->
+<!--            </tbody>  -->
+<!--           </table>  -->
+<!--          </div>  -->
+<!--          END TABLE  -->
+<!--         </div>  -->
+<!--        </div>  -->
       </hr>
      </dl> 
      <div class="clearfix"> 
