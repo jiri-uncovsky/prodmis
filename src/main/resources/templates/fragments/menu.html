@@ -37,9 +37,10 @@
        
         <li xmlns:th="http://www.thymeleaf.org" th:if="${session.username}" class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_document})}">Document<span class="caret"></span></a> 
         <ul class="dropdown-menu"> 
-         <li><a href="/documents/upload-form">Upload Document</a></li> 
-             <li><a href="/documents" data-th-text="#{label_list_entity(#{label_document_plural})}">List Document</a></li>
-                <li><a href="/documents/create-form" th:if="${session.admin}" data-th-text="#{label_create_entity(#{label_document})}" style="color: orange;">Create Document</a></li>
+            <li><a href="/documents/upload-form">Upload Document</a></li> 
+            <li><a href="/documents/perUser" data-th-text="#{label_document_plural_my}">List Document</a></li>
+            <li><a href="/documents" th:if="${session.admin}" data-th-text="#{label_list_entity(#{label_document_plural_all})}" style="color: orange;">List Document</a></li>
+            <li><a href="/documents/create-form" th:if="${session.admin}" data-th-text="#{label_create_entity(#{label_document})}" style="color: orange;">Create Document</a></li>
         </ul> </li> 
       
        <li xmlns:th="http://www.thymeleaf.org" th:if="${session.admin}" class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_documentrevision})}" style="color: orange;">DocumentRevision<span class="caret"></span></a> 
