@@ -32,9 +32,5 @@ privileged aspect ProductFormatter_Roo_Formatter {
         Long id = conversionService.convert(text, Long.class);
         return productService.findOne(id);
     }
-    
-    public String ProductFormatter.print(Product product, Locale locale) {
-        return product == null ? null : new StringBuilder().append(product.getCode()).append(" - ").append(product.getName()).append(" - ").append(product.getDescription()).append(" - ").append(product.getArchived()).toString();
-    }
-    
+        
 }

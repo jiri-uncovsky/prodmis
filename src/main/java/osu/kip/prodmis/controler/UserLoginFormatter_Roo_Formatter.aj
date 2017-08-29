@@ -33,8 +33,5 @@ privileged aspect UserLoginFormatter_Roo_Formatter {
         return userLoginService.findOne(id);
     }
     
-    public String UserLoginFormatter.print(UserLogin userLogin, Locale locale) {
-        return userLogin == null ? null : new StringBuilder().append(userLogin.getUsername()).append(" - ").append(userLogin.getPassword()).append(" - ").append(userLogin.getName()).append(" - ").append(userLogin.getSurname()).append(" - ").append(userLogin.getEmail()).toString();
-    }
-    
+  
 }
