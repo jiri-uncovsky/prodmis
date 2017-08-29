@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import osu.kip.prodmis.datatables.DatatablesData;
+import osu.kip.prodmis.datatables.DatatablesPageable;
 import osu.kip.prodmis.domain.Document;
 import osu.kip.prodmis.domain.Organization;
 import osu.kip.prodmis.domain.Product;
@@ -86,6 +87,14 @@ public class ProductController {
     }
 	
 	
-	
+	 @RequestMapping(value = "/listmp", method = RequestMethod.GET, produces = "application/vnd.datatables+json")
+	 @ResponseBody
+	 public DatatablesData<Product> listPerUser(GlobalSearch search, DatatablesPageable pageable,
+	   @RequestParam("draw") Integer draw, @ModelAttribute("user_org_id") Long orgId) {
+	  Page<Product> products = productService.findAllByOrganization(organizationService.findOne(orgId), search,
+	    pageable);
+	  long allAvailableProduct = productService.countByOrganizationId(orgId);
+	  return new DatatablesData<Product>(products, allAvailableProduct, draw);
+	 }
 
 }
