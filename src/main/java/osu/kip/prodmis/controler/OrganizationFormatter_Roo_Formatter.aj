@@ -33,8 +33,6 @@ privileged aspect OrganizationFormatter_Roo_Formatter {
         return organizationService.findOne(id);
     }
     
-    public String OrganizationFormatter.print(Organization organization, Locale locale) {
-        return organization == null ? null : new StringBuilder().append(organization.getName()).append(" - ").append(organization.getAddressStreet()).append(" - ").append(organization.getAddressCity()).append(" - ").append(organization.getAddressCountry()).append(" - ").append(organization.getAddressPostcode()).toString();
-    }
+    
     
 }
